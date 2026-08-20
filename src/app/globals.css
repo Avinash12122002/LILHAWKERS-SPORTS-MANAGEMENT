@@ -30,6 +30,13 @@ body {
   color: var(--color-text);
 }
 
+/* Optimize initial Style & Layout calculations by deferring offscreen sections */
+section:not(#hero),
+footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 650px;
+}
+
 /* === Custom Scrollbar === */
 ::-webkit-scrollbar {
   width: 8px;
