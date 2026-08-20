@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 
 export default function Hero() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -103,7 +104,7 @@ export default function Hero() {
           className="animate-fade-in-up flex flex-col sm:flex-row items-center justify-center gap-4 mb-4"
           style={{ animationDelay: "0.45s" }}
         >
-          <a href="#demo" className="btn-primary text-base px-8 py-4 animate-pulse-glow">
+          <Link href="/contact" className="btn-primary text-base px-8 py-4 animate-pulse-glow">
             <span className="flex items-center gap-2 font-semibold">
               BOOK A FREE DEMO SESSION
               <svg
@@ -120,17 +121,17 @@ export default function Hero() {
                 />
               </svg>
             </span>
-          </a>
-          <a href="#about" className="btn-outline text-base">
+          </Link>
+          <Link href="/about" className="btn-outline text-base">
             Learn More
-          </a>
+          </Link>
         </div>
 
         <p
           className="animate-fade-in-up text-xs sm:text-sm text-[var(--color-text-secondary)]/80 max-w-2xl mx-auto"
           style={{ animationDelay: "0.5s" }}
         >
-          For private schools, sports clubs, coaching centres, sports training centres and communities looking to bring a structured, progressive sports program to their participants.
+          For private schools, sports clubs, sports training centres and communities looking to bring a structured, progressive sports program to their participants.
         </p>
 
         {/* Pathway visual preview */}

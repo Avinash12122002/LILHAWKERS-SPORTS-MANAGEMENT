@@ -2,14 +2,12 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const navLinks = [
-  { href: "/#about", label: "About" },
-  { href: "/#approach", label: "Approach" },
-  { href: "/#how-it-works", label: "How It Works" },
-  { href: "/#partners", label: "Partners" },
-  { href: "/#why-us", label: "Why Us" },
-  { href: "/programs", label: "Programs" },
+  { href: "/about", label: "About" },
+  { href: "/programs", label: "Programs & System" },
+  { href: "/partners", label: "Partners & Why Us" },
 ];
 
 export default function Navbar() {
@@ -37,23 +35,34 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-          ? "bg-[#0a0a0a]/95 backdrop-blur-xl py-3 shadow-lg shadow-black/40 border-b border-white/5"
-          : "bg-transparent py-5"
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-[#0a0a0a]/95 backdrop-blur-xl py-2.5 shadow-lg shadow-black/40 border-b border-white/5"
+          : "bg-transparent py-4"
+      }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-gradient-end)] flex items-center justify-center font-bold text-black text-lg transition-transform group-hover:scale-110 group-hover:rotate-3">
-            LH
+        {/* Official Brand Logo */}
+        <Link href="/" className="flex items-center gap-3.5 group">
+          <div className="relative w-14 h-14 sm:w-15 sm:h-15 rounded-2xl bg-white/[0.05] border border-white/15 p-1.5 flex items-center justify-center shadow-xl transition-all duration-300 group-hover:scale-105 group-hover:border-[var(--color-primary)]/50 group-hover:shadow-[0_0_25px_rgba(0,200,83,0.35)] shrink-0">
+            <Image
+              src="/icon.png"
+              alt="Lilhawkers Emblem"
+              width={56}
+              height={56}
+              className="w-full h-full object-contain drop-shadow-md"
+              priority
+            />
           </div>
-          <div className="flex flex-col">
-            <span className="font-[var(--font-heading)] text-lg font-bold tracking-tight text-white">
+          <div className="flex flex-col justify-center">
+            <span className="font-[var(--font-heading)] text-lg sm:text-xl font-black tracking-tight text-white group-hover:text-[var(--color-primary)] transition-colors leading-none">
               LILHAWKERS
             </span>
-            <span className="text-[10px] uppercase tracking-[0.2em] text-[var(--color-text-secondary)] leading-none">
-              Sports Management
+            <span className="text-[7.5px] font-bold uppercase tracking-[0.06em] text-[var(--color-primary)] mt-1 leading-tight whitespace-nowrap">
+              Sports Management Pvt. Ltd.
+            </span>
+            <span className="text-[7px] font-semibold tracking-[0.14em] text-[var(--color-text-secondary)] uppercase mt-0.5 leading-tight">
+              Learn &bull; Play &bull; Grow
             </span>
           </div>
         </Link>

@@ -29,7 +29,7 @@ export default function PrivacyPage() {
             1. Information We Collect
           </h2>
           <p>
-            When you submit a demonstration booking or contact inquiry on behalf of an institution (such as a school, club, coaching centre, or community), we collect:
+            When you submit a demonstration booking or contact inquiry on behalf of an institution (such as a school, club, sports training centre, or community), we collect:
           </p>
           <ul className="list-disc pl-5 space-y-1">
             <li>Organisation Name and Type</li>

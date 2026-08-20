@@ -5,7 +5,7 @@ import DemoForm from "@/components/DemoForm";
 
 export const metadata: Metadata = {
   title: "Book a Free Demo & Contact Us | Lilhawkers Sports Management",
-  description: "Schedule a free demonstration sports development session for your school, club, coaching centre or community.",
+  description: "Schedule a free demonstration sports development session for your school, club, sports training centre or community.",
 };
 
 export default function ContactPage() {
@@ -26,7 +26,7 @@ export default function ContactPage() {
               Let&apos;s Build the <span className="gradient-text">Pathway</span> Together
             </h1>
             <p className="mt-3 text-sm sm:text-base text-[var(--color-text-secondary)] leading-relaxed">
-              Whether you are a private school, sports club, coaching academy, or community organiser, we would love to connect.
+              Whether you are a private school, sports club, sports training centre, or community organiser, we would love to connect.
             </p>
           </div>
 

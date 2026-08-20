@@ -29,7 +29,7 @@ export default function TermsPage() {
             1. Institutional Scope of Services
           </h2>
           <p>
-            Lilhawkers provides B2B sports-program curriculum development, coach training, structured sports materials, and physical education management systems for private schools, sports clubs, coaching academies, sports training centres, and communities.
+            Lilhawkers provides B2B sports-program curriculum development, coach training, structured sports materials, and physical education management systems for private schools, sports clubs, sports training centres, and communities.
           </p>
 
           <h2 className="text-lg font-bold text-white font-[var(--font-heading)] pt-4">
@@ -43,7 +43,7 @@ export default function TermsPage() {
             3. Intellectual Property
           </h2>
           <p>
-            All sports curriculum frameworks, 3-stage developmental models, training manuals, pedagogical materials, logos, and website content are the exclusive intellectual property of Lilhawkers Sports Management Private Limited. Unauthorized duplication, redistribution, or resale is strictly prohibited.
+            All sports curriculum frameworks, six-stage developmental models, training manuals, pedagogical materials, logos, and website content are the exclusive intellectual property of Lilhawkers Sports Management Private Limited. Unauthorized duplication, redistribution, or resale is strictly prohibited.
           </p>
 
           <h2 className="text-lg font-bold text-white font-[var(--font-heading)] pt-4">

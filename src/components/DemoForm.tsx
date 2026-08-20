@@ -6,13 +6,19 @@ import RevealWrapper from "./RevealWrapper";
 const orgTypes = [
   "Private School",
   "Sports Club",
-  "Coaching Centre",
   "Sports Training Centre",
   "Community Organisation",
   "Other",
 ];
 
-const ageGroups = ["Pre-Primary", "Primary", "Secondary"];
+const ageGroups = [
+  "Early Childhood (3–6 yrs)",
+  "Primary / Youth (7–12 yrs)",
+  "Teens / Competitive (13–20 yrs)",
+  "Working Professionals (20–35 yrs)",
+  "Adults & Longevity (35–60 yrs)",
+  "Seniors & Golden Age (60+ yrs)",
+];
 
 export default function DemoForm() {
   const [formData, setFormData] = useState({

@@ -8,13 +8,20 @@ const orgTypesList = [
   "All Types",
   "Private School",
   "Sports Club",
-  "Coaching Centre",
   "Sports Training Centre",
   "Community Organisation",
   "Other",
 ];
 
-const ageGroupsList = ["All Ages", "Pre-Primary", "Primary", "Secondary"];
+const ageGroupsList = [
+  "All Ages",
+  "Early Childhood (3–6 yrs)",
+  "Primary / Youth (7–12 yrs)",
+  "Teens / Competitive (13–20 yrs)",
+  "Working Professionals (20–35 yrs)",
+  "Adults & Longevity (35–60 yrs)",
+  "Seniors & Golden Age (60+ yrs)",
+];
 
 const statusList: { label: string; value: string; color: string }[] = [
   { label: "All Statuses", value: "all", color: "text-white" },
@@ -255,7 +262,12 @@ export default function AdminDashboard() {
       const matchesOrg = selectedOrgType === "All Types" || item.organisationType === selectedOrgType;
 
       // 3. Age Group
-      const matchesAge = selectedAgeGroup === "All Ages" || item.ageGroups.includes(selectedAgeGroup);
+      const matchesAge =
+        selectedAgeGroup === "All Ages" ||
+        item.ageGroups.some((ag) =>
+          ag.toLowerCase().includes(selectedAgeGroup.toLowerCase().split(" ")[0]) ||
+          ag === selectedAgeGroup
+        );
 
       // 4. Status
       const matchesStatus = selectedStatus === "all" || item.status === selectedStatus;

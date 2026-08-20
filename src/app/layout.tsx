@@ -34,6 +34,13 @@ export const metadata: Metadata = {
       "We design structured, age-appropriate sports development systems and implement them through schools, clubs, training centres and communities.",
     type: "website",
   },
+  icons: {
+    icon: [
+      { url: "/icon.png", type: "image/png" },
+      { url: "/favicon.ico" },
+    ],
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({

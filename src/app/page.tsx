@@ -1,9 +1,8 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import Approach from "@/components/Approach";
+import ApproachAndSystem from "@/components/ApproachAndSystem";
 import Stages from "@/components/Stages";
-import HowItWorks from "@/components/HowItWorks";
 import Partners from "@/components/Partners";
 import WhyUs from "@/components/WhyUs";
 import DemoForm from "@/components/DemoForm";
@@ -16,9 +15,8 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <About />
-        <Approach />
+        <ApproachAndSystem />
         <Stages />
-        <HowItWorks />
         <Partners />
         <WhyUs />
         <DemoForm />

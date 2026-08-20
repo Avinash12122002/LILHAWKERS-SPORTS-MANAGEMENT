@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import RevealWrapper from "./RevealWrapper";
 
 const partners = [
@@ -20,15 +21,6 @@ const partners = [
     ),
     title: "Sports Clubs",
     desc: "To strengthen junior development pathways",
-  },
-  {
-    icon: (
-      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-      </svg>
-    ),
-    title: "Coaching Centres",
-    desc: "To add a structured, progressive curriculum",
   },
   {
     icon: (
@@ -65,20 +57,17 @@ export default function Partners() {
                 Who We Partner With
               </span>
             </div>
-            <h2 className="font-[var(--font-heading)] text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-3">
-              Built for{" "}
-              <span className="gradient-text">Organisations,</span>
-              <br />
-              Not Just Individuals
+            <h2 className="font-[var(--font-heading)] text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
+              Who We <span className="gradient-text">Partner With</span>
             </h2>
-            <p className="max-w-2xl mx-auto text-sm sm:text-base text-[var(--color-text-secondary)]">
+            <p className="text-[var(--color-text-secondary)] text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
               We partner with organisations that want to offer their participants
               a structured sports development experience.
             </p>
           </div>
 
           {/* Partner Cards */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-6">
             {partners.map((partner, i) => (
               <div
                 key={partner.title}
@@ -108,9 +97,9 @@ export default function Partners() {
                   that&apos;s exactly the gap we fill.
                 </span>
               </p>
-              <a href="#demo" className="btn-primary">
+              <Link href="/contact" className="btn-primary">
                 <span>Partner With Us</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
