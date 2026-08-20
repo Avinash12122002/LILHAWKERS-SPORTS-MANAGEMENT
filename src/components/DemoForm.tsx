@@ -256,12 +256,19 @@ export default function DemoForm() {
                 )}
 
                 <div>
-                  <label className="block text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-wider mb-2">
+                  <label
+                    htmlFor="organisationName"
+                    id="organisationName-label"
+                    className="block text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-wider mb-2"
+                  >
                     Organisation Name *
                   </label>
                   <input
+                    id="organisationName"
                     type="text"
                     name="organisationName"
+                    aria-labelledby="organisationName-label"
+                    aria-required="true"
                     value={formData.organisationName}
                     onChange={handleChange}
                     required
@@ -271,11 +278,19 @@ export default function DemoForm() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-wider mb-2">
+                  <label
+                    htmlFor="organisationType"
+                    id="organisationType-label"
+                    className="block text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-wider mb-2"
+                  >
                     Organisation Type *
                   </label>
                   <select
+                    id="organisationType"
                     name="organisationType"
+                    aria-label="Organisation Type"
+                    aria-labelledby="organisationType-label"
+                    aria-required="true"
                     value={formData.organisationType}
                     onChange={handleChange}
                     required
@@ -294,12 +309,19 @@ export default function DemoForm() {
 
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-wider mb-2">
+                    <label
+                      htmlFor="contactName"
+                      id="contactName-label"
+                      className="block text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-wider mb-2"
+                    >
                       Contact Person *
                     </label>
                     <input
+                      id="contactName"
                       type="text"
                       name="contactName"
+                      aria-labelledby="contactName-label"
+                      aria-required="true"
                       value={formData.contactName}
                       onChange={handleChange}
                       required
@@ -310,12 +332,19 @@ export default function DemoForm() {
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-wider mb-2">
+                    <label
+                      htmlFor="phone"
+                      id="phone-label"
+                      className="block text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-wider mb-2"
+                    >
                       Phone Number *
                     </label>
                     <input
+                      id="phone"
                       type="tel"
                       name="phone"
+                      aria-labelledby="phone-label"
+                      aria-required="true"
                       value={formData.phone}
                       onChange={handleChange}
                       required
@@ -330,12 +359,19 @@ export default function DemoForm() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-wider mb-2">
+                  <label
+                    htmlFor="email"
+                    id="email-label"
+                    className="block text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-wider mb-2"
+                  >
                     Email Address *
                   </label>
                   <input
+                    id="email"
                     type="email"
                     name="email"
+                    aria-labelledby="email-label"
+                    aria-required="true"
                     value={formData.email}
                     onChange={handleChange}
                     required
@@ -344,8 +380,11 @@ export default function DemoForm() {
                   />
                 </div>
 
-                <div>
-                  <label className="block text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-wider mb-2">
+                <div role="group" aria-labelledby="age-groups-label">
+                  <label
+                    id="age-groups-label"
+                    className="block text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-wider mb-2"
+                  >
                     Age Group(s) of Interest *
                   </label>
                   <div className="flex flex-wrap gap-3">
@@ -368,7 +407,7 @@ export default function DemoForm() {
                     ))}
                   </div>
                   {ageGroupError && (
-                    <p className="text-xs text-red-400 mt-2 flex items-center gap-1.5">
+                    <p className="text-xs text-red-400 mt-2 flex items-center gap-1.5" role="alert">
                       <svg className="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
                       </svg>
@@ -378,12 +417,19 @@ export default function DemoForm() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-wider mb-2">
+                  <label
+                    htmlFor="location"
+                    id="location-label"
+                    className="block text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-wider mb-2"
+                  >
                     Preferred Location / City *
                   </label>
                   <input
+                    id="location"
                     type="text"
                     name="location"
+                    aria-labelledby="location-label"
+                    aria-required="true"
                     value={formData.location}
                     onChange={handleChange}
                     required
@@ -393,14 +439,20 @@ export default function DemoForm() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-wider mb-2">
+                  <label
+                    htmlFor="message"
+                    id="message-label"
+                    className="block text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-wider mb-2"
+                  >
                     Message{" "}
                     <span className="text-[var(--color-text-secondary)]/60 normal-case tracking-normal">
                       (optional)
                     </span>
                   </label>
                   <textarea
+                    id="message"
                     name="message"
+                    aria-labelledby="message-label"
                     value={formData.message}
                     onChange={handleChange}
                     rows={3}

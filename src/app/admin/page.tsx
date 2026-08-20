@@ -526,6 +526,7 @@ export default function AdminDashboard() {
               <div className="flex items-center gap-1">
                 {/* <span className="text-[11px] text-[var(--color-text-secondary)] hidden sm:inline">📅</span> */}
                 <select
+                  aria-label="Filter by date"
                   value={dateFilter}
                   onChange={(e) => setDateFilter(e.target.value as any)}
                   className="h-10 px-2.5 bg-white/[0.04] border border-white/10 rounded-xl text-xs text-white focus:border-[var(--color-primary)] focus:outline-none cursor-pointer"
@@ -541,6 +542,7 @@ export default function AdminDashboard() {
 
               {/* Status Filter */}
               <select
+                aria-label="Filter by status"
                 value={selectedStatus}
                 onChange={(e) => setSelectedStatus(e.target.value)}
                 className="h-10 px-2.5 bg-white/[0.04] border border-white/10 rounded-xl text-xs text-white focus:border-[var(--color-primary)] focus:outline-none cursor-pointer"
@@ -554,6 +556,7 @@ export default function AdminDashboard() {
 
               {/* Org Type Filter */}
               <select
+                aria-label="Filter by organisation type"
                 value={selectedOrgType}
                 onChange={(e) => setSelectedOrgType(e.target.value)}
                 className="h-10 px-2.5 bg-white/[0.04] border border-white/10 rounded-xl text-xs text-white focus:border-[var(--color-primary)] focus:outline-none cursor-pointer"
@@ -567,6 +570,7 @@ export default function AdminDashboard() {
 
               {/* Age Group Filter */}
               <select
+                aria-label="Filter by age group"
                 value={selectedAgeGroup}
                 onChange={(e) => setSelectedAgeGroup(e.target.value)}
                 className="h-10 px-2.5 bg-white/[0.04] border border-white/10 rounded-xl text-xs text-white focus:border-[var(--color-primary)] focus:outline-none cursor-pointer"
@@ -580,6 +584,7 @@ export default function AdminDashboard() {
 
               {/* Sort */}
               <select
+                aria-label="Sort inquiries"
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as "newest" | "oldest" | "org")}
                 className="h-10 px-2.5 bg-white/[0.04] border border-white/10 rounded-xl text-xs text-white focus:border-[var(--color-primary)] focus:outline-none cursor-pointer"
@@ -933,10 +938,12 @@ export default function AdminDashboard() {
               <form onSubmit={handleUpdateSubmission} className="space-y-3 text-xs">
                 {/* Status Dropdown */}
                 <div>
-                  <label className="block text-[10px] font-semibold text-[var(--color-primary)] uppercase tracking-wider mb-1">
+                  <label htmlFor="edit-status" className="block text-[10px] font-semibold text-[var(--color-primary)] uppercase tracking-wider mb-1">
                     Inquiry Status
                   </label>
                   <select
+                    id="edit-status"
+                    aria-label="Inquiry Status"
                     value={editingSubmission.status || "pending"}
                     onChange={(e) => setEditingSubmission({ ...editingSubmission, status: e.target.value as SubmissionStatus })}
                     className="w-full h-9 px-3 bg-white/5 border border-white/10 rounded-lg text-xs text-white focus:outline-none focus:border-[var(--color-primary)]"
@@ -950,8 +957,9 @@ export default function AdminDashboard() {
 
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-[10px] font-semibold text-white/70 mb-1">Organisation</label>
+                    <label htmlFor="edit-org-name" className="block text-[10px] font-semibold text-white/70 mb-1">Organisation</label>
                     <input
+                      id="edit-org-name"
                       type="text"
                       value={editingSubmission.organisationName}
                       onChange={(e) => setEditingSubmission({ ...editingSubmission, organisationName: e.target.value })}
@@ -960,8 +968,10 @@ export default function AdminDashboard() {
                     />
                   </div>
                   <div>
-                    <label className="block text-[10px] font-semibold text-white/70 mb-1">Organisation Type</label>
+                    <label htmlFor="edit-org-type" className="block text-[10px] font-semibold text-white/70 mb-1">Organisation Type</label>
                     <select
+                      id="edit-org-type"
+                      aria-label="Organisation Type"
                       value={editingSubmission.organisationType}
                       onChange={(e) => setEditingSubmission({ ...editingSubmission, organisationType: e.target.value })}
                       className="w-full h-8 px-2 bg-white/5 border border-white/10 rounded-lg text-xs text-white"
