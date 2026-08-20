@@ -122,8 +122,12 @@ export default function Hero() {
               </svg>
             </span>
           </Link>
-          <Link href="/about" className="btn-outline text-base">
-            Learn More
+          <Link
+            href="/about"
+            className="btn-outline text-base"
+            aria-label="Learn more about Lilhawkers sports management and philosophy"
+          >
+            Explore Our Approach
           </Link>
         </div>
 
