@@ -5,6 +5,13 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: path.resolve(__dirname),
   },
+  compress: true,
+  poweredByHeader: false,
+  reactStrictMode: true,
+  images: {
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 31536000,
+  },
 };
 
 export default nextConfig;

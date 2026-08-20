@@ -71,10 +71,7 @@ export default function Hero() {
         </div>
 
         {/* Main Heading */}
-        <h1
-          className="animate-fade-in-up font-[var(--font-heading)] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6"
-          style={{ animationDelay: "0.15s" }}
-        >
+        <h1 className="animate-fade-in-up font-[var(--font-heading)] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6">
           Building the{" "}
           <span className="gradient-text">Pathway</span>
           <br />
@@ -82,28 +79,19 @@ export default function Hero() {
         </h1>
 
         {/* Subheading */}
-        <p
-          className="animate-fade-in-up max-w-3xl mx-auto text-lg sm:text-xl text-[var(--color-text-secondary)] leading-relaxed mb-4"
-          style={{ animationDelay: "0.3s" }}
-        >
+        <p className="animate-fade-in-up max-w-3xl mx-auto text-lg sm:text-xl text-[var(--color-text-secondary)] leading-relaxed mb-4">
           Lilhawkers designs, delivers and continuously improves structured
           sports development programs — built to take children and young people
           from their very first movements to sport-specific performance
           training.
         </p>
 
-        <p
-          className="animate-fade-in-up text-sm sm:text-base text-[var(--color-primary)] font-medium mb-10"
-          style={{ animationDelay: "0.35s" }}
-        >
+        <p className="animate-fade-in-up text-sm sm:text-base text-[var(--color-primary)] font-medium mb-10">
           We don&apos;t just coach a sport. We build the pathway.
         </p>
 
         {/* CTA Buttons */}
-        <div
-          className="animate-fade-in-up flex flex-col sm:flex-row items-center justify-center gap-4 mb-4"
-          style={{ animationDelay: "0.45s" }}
-        >
+        <div className="animate-fade-in-up flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
           <Link href="/contact" className="btn-primary text-base px-8 py-4 animate-pulse-glow">
             <span className="flex items-center gap-2 font-semibold">
               BOOK A FREE DEMO SESSION

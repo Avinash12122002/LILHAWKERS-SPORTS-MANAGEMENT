@@ -84,12 +84,14 @@ body {
   }
 }
 
-@keyframes pulse-glow {
+@keyframes pulse-glow-composited {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(0, 200, 83, 0.3);
+    transform: scale(1);
+    filter: drop-shadow(0 0 12px rgba(0, 200, 83, 0.4));
   }
   50% {
-    box-shadow: 0 0 40px rgba(0, 200, 83, 0.6);
+    transform: scale(1.02);
+    filter: drop-shadow(0 0 24px rgba(0, 200, 83, 0.7));
   }
 }
 
@@ -118,7 +120,8 @@ body {
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
 }
 
 .animate-fade-in {
@@ -134,11 +137,13 @@ body {
 }
 
 .animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
+  animation: pulse-glow-composited 2.5s ease-in-out infinite;
+  will-change: transform, filter;
 }
 
 .animate-float {
   animation: float 3s ease-in-out infinite;
+  will-change: transform;
 }
 
 /* === Glassmorphism === */
