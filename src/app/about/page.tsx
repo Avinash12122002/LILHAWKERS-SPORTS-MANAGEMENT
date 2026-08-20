@@ -27,7 +27,7 @@ export default function AboutPage() {
               <span className="gradient-text">We Build the Pathway.</span>
             </h1>
             <p className="mt-6 text-lg text-[var(--color-text-secondary)] leading-relaxed">
-              Lilhawkers Sports Management Pvt. Ltd. is a sports-program development and delivery company.
+              Lilhawkers Sports Management Pvt. Ltd. is a Private company incorporated in 2019 as a Sports Managment Comapny. We Identify Ourselves as a sports-program development and delivery company.
               We are not a traditional sports academy — we design, implement, and continuously improve structured sports development systems for institutional partners.
             </p>
           </div>
