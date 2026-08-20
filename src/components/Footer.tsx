@@ -101,7 +101,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors"
+                    className="text-zinc-300 hover:text-[var(--color-primary)] transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -176,18 +176,26 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar with Legal Links */}
-        <div className="py-5 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px]">
-          <p className="text-[var(--color-text-secondary)]/60 text-center sm:text-left">
-            © {currentYear} Lilhawkers Sports Management Pvt. Ltd. All rights reserved.
+        <div className="py-5 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+          <p className="text-zinc-400 text-center sm:text-left">
+            &copy; {currentYear} Lilhawkers Sports Management Pvt. Ltd. All rights reserved.
           </p>
 
-          <div className="flex items-center gap-4 text-[var(--color-text-secondary)]/70">
-            <Link href="/privacy" className="hover:text-white transition-colors">
+          <div className="flex items-center gap-4 text-zinc-300 font-medium">
+            <Link
+              href="/privacy"
+              className="hover:text-[var(--color-primary)] transition-colors underline-offset-4 hover:underline"
+              aria-label="View Privacy Policy"
+            >
               Privacy Policy
             </Link>
-            <span>•</span>
-            <Link href="/terms" className="hover:text-white transition-colors">
-              Terms & Conditions
+            <span className="text-zinc-600" aria-hidden="true">&bull;</span>
+            <Link
+              href="/terms"
+              className="hover:text-[var(--color-primary)] transition-colors underline-offset-4 hover:underline"
+              aria-label="View Terms and Conditions"
+            >
+              Terms &amp; Conditions
             </Link>
           </div>
         </div>
