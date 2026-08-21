@@ -211,12 +211,21 @@ export default function Navbar() {
         {/* Drawer Footer Contact Bar */}
         <div className="p-4 border-t border-slate-100 bg-slate-50/70 space-y-2 text-xs">
           <div className="flex items-center justify-between">
-            <span className="text-[10px] text-slate-500 uppercase font-semibold">Direct Call</span>
+            <span className="text-[10px] text-slate-500 uppercase font-semibold">WhatsApp</span>
             <a
               href="tel:+918168226462"
-              className="font-bold text-slate-900 hover:text-[var(--color-primary)] transition-colors"
+              className="font-bold text-slate-900 hover:text-[var(--color-primary)] transition-colors text-[11px]"
             >
               +91 81682 26462
+            </a>
+          </div>
+          <div className="flex items-center justify-between">
+            <span className="text-[10px] text-slate-500 uppercase font-semibold">Calling Line</span>
+            <a
+              href="tel:+918950546462"
+              className="font-bold text-slate-900 hover:text-[var(--color-primary)] transition-colors text-[11px]"
+            >
+              +91 89505 46462
             </a>
           </div>
           <div className="flex items-center justify-between">

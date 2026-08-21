@@ -25,10 +25,17 @@ export default function Footer() {
               </Link>
               <a
                 href="tel:+918168226462"
-                className="px-5 py-2.5 rounded-full bg-white hover:bg-slate-50 text-slate-800 text-xs sm:text-sm font-bold border border-slate-200 shadow-xs transition-colors inline-flex items-center gap-2"
+                className="px-4 py-2.5 rounded-full bg-white hover:bg-slate-50 text-slate-800 text-xs sm:text-sm font-bold border border-slate-200 shadow-xs transition-colors inline-flex items-center gap-1.5"
               >
                 <span>📞</span>
-                <span>Call +91 81682 26462</span>
+                <span>+91 81682 26462</span>
+              </a>
+              <a
+                href="tel:+918950546462"
+                className="px-4 py-2.5 rounded-full bg-white hover:bg-slate-50 text-slate-800 text-xs sm:text-sm font-bold border border-slate-200 shadow-xs transition-colors inline-flex items-center gap-1.5"
+              >
+                <span>📞</span>
+                <span>+91 89505 46462</span>
               </a>
             </div>
           </div>
@@ -67,10 +74,14 @@ export default function Footer() {
             </p>
 
             <div className="space-y-2 text-xs text-slate-600 pt-2 border-t border-slate-200">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 flex-wrap">
                 <span className="text-[var(--color-primary)] font-bold text-xs">📞</span>
                 <a href="tel:+918168226462" className="text-slate-900 hover:text-[var(--color-primary)] transition-colors font-bold">
                   +91 81682 26462
+                </a>
+                <span className="text-slate-300">&bull;</span>
+                <a href="tel:+918950546462" className="text-slate-900 hover:text-[var(--color-primary)] transition-colors font-bold" title="Calling Helpline">
+                  +91 89505 46462 (Calling)
                 </a>
               </div>
               <div className="flex items-center gap-2">

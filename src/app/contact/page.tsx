@@ -43,14 +43,20 @@ export default function ContactPage() {
                   Call / WhatsApp
                 </h3>
               </div>
-              <div className="mt-3 pt-2 border-t border-slate-100">
+              <div className="mt-3 pt-2 border-t border-slate-100 space-y-1">
                 <a
                   href="tel:+918168226462"
-                  className="text-sm font-bold text-slate-900 hover:text-[var(--color-primary)] transition-colors block"
+                  className="text-xs font-bold text-slate-900 hover:text-[var(--color-primary)] transition-colors block"
                 >
-                  +91 81682 26462
+                  +91 81682 26462 <span className="text-[10px] text-slate-500 font-normal">(WhatsApp)</span>
                 </a>
-                <span className="text-[10px] text-[var(--color-primary)] font-bold block mt-0.5">
+                <a
+                  href="tel:+918950546462"
+                  className="text-xs font-bold text-slate-900 hover:text-[var(--color-primary)] transition-colors block"
+                >
+                  +91 89505 46462 <span className="text-[10px] text-[var(--color-primary)] font-semibold">(Calling)</span>
+                </a>
+                <span className="text-[9.5px] text-slate-500 font-semibold block pt-0.5">
                   Mon – Sat &bull; 9 AM – 7 PM
                 </span>
               </div>
