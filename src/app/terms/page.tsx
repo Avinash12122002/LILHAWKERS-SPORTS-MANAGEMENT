@@ -51,11 +51,23 @@ export default function TermsPage() {
             4. Corporate Entity & Jurisdiction
           </h2>
           <p>
-            Lilhawkers Sports Management Private Limited is incorporated under the Companies Act, 2013 (CIN: U92419HR2019PTC083938). Any disputes arising under these terms shall be subject to the exclusive jurisdiction of the competent courts in Haryana, India.
+            Lilhawkers Sports Management Private Limited is incorporated under the Companies Act, 2013 (CIN: U92419HR2019PTC083938). Any disputes arising under these terms shall be subject to the exclusive jurisdiction of the competent courts in Haryana / Delhi NCR, India.
           </p>
+          <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-1.5 text-xs">
+            <p className="font-bold text-white">Lilhawkers Sports Management Private Limited</p>
+            <p className="text-zinc-300">
+              📍 <strong>Registered Office:</strong> First Floor, Besides Sadar Thana, Delhi Rohtak Corridor, opp. Metro pillar no 830, Bahadurgarh, DELHI NCR 124507
+            </p>
+            <p className="text-zinc-300">
+              📞 <strong>Phone:</strong> <a href="tel:+918168226462" className="text-[var(--color-primary)] font-semibold hover:underline">+91 81682 26462</a>
+            </p>
+            <p className="text-zinc-300">
+              ✉ <strong>Email:</strong> <a href="mailto:info@lilhawkers.com" className="text-[var(--color-primary)] font-semibold hover:underline">info@lilhawkers.com</a>
+            </p>
+          </div>
 
-          <div className="pt-6 border-t border-white/5 text-xs text-white/50">
-            Lilhawkers Sports Management Private Limited • CIN: U92419HR2019PTC083938 • Last Updated: August 2026
+          <div className="pt-4 border-t border-white/5 text-xs text-white/50">
+            Lilhawkers Sports Management Private Limited • CIN: U92419HR2019PTC083938 • Incorporated 03 December 2019 • Last Updated: August 2026
           </div>
         </div>
       </section>

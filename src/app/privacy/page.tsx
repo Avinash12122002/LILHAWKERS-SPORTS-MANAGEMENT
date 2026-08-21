@@ -61,14 +61,29 @@ export default function PrivacyPage() {
           </p>
 
           <h2 className="text-lg font-bold text-white font-[var(--font-heading)] pt-4">
-            4. Contact Us
+            4. Contact Information & Data Protection Office
           </h2>
           <p>
-            If you have questions regarding this Privacy Policy, please contact us at <strong>info@lilhawkers.com</strong>.
+            If you have questions regarding this Privacy Policy or wish to request data updates/removal, please contact us at:
           </p>
+          <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-1.5 text-xs">
+            <p className="font-bold text-white">Lilhawkers Sports Management Private Limited</p>
+            <p className="text-zinc-300">
+              📍 <strong>Registered Office:</strong> First Floor, Besides Sadar Thana, Delhi Rohtak Corridor, opp. Metro pillar no 830, Bahadurgarh, DELHI NCR 124507
+            </p>
+            <p className="text-zinc-300">
+              📞 <strong>Phone:</strong> <a href="tel:+918168226462" className="text-[var(--color-primary)] font-semibold hover:underline">+91 81682 26462</a>
+            </p>
+            <p className="text-zinc-300">
+              ✉ <strong>Email:</strong> <a href="mailto:info@lilhawkers.com" className="text-[var(--color-primary)] font-semibold hover:underline">info@lilhawkers.com</a>
+            </p>
+            <p className="text-zinc-400 font-mono text-[11px] pt-1">
+              CIN: U92419HR2019PTC083938 • Reg. No: 83938
+            </p>
+          </div>
 
-          <div className="pt-6 border-t border-white/5 text-xs text-white/50">
-            Lilhawkers Sports Management Private Limited • CIN: U92419HR2019PTC083938 • Last Updated: August 2026
+          <div className="pt-4 border-t border-white/5 text-xs text-white/50">
+            Lilhawkers Sports Management Private Limited • CIN: U92419HR2019PTC083938 • Incorporated 03 December 2019 • Last Updated: August 2026
           </div>
         </div>
       </section>
