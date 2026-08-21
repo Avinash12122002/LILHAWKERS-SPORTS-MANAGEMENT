@@ -4,10 +4,35 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const navLinks = [
-  { href: "/about", label: "About" },
-  { href: "/programs", label: "Programs & System" },
-  { href: "/partners", label: "Partners & Why Us" },
+const navItems = [
+  {
+    num: "01",
+    href: "/about",
+    label: "About Us",
+    sub: "Philosophy, team & structured mission",
+    icon: "🏛️",
+  },
+  {
+    num: "02",
+    href: "/programs",
+    label: "Programs & System",
+    sub: "4-stage physical development pipeline",
+    icon: "⚡",
+  },
+  {
+    num: "03",
+    href: "/partners",
+    label: "Partners & Why Us",
+    sub: "Schools, clubs, centres & 22 showcases",
+    icon: "🤝",
+  },
+  {
+    num: "04",
+    href: "/contact",
+    label: "Contact & Demo",
+    sub: "Schedule institutional presentation",
+    icon: "📅",
+  },
 ];
 
 export default function Navbar() {
@@ -37,14 +62,14 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#0a0a0a]/95 py-2.5 shadow-lg shadow-black/40 border-b border-white/10"
+          ? "bg-[#090b0a]/95 py-2.5 shadow-xl shadow-black/50 border-b border-white/10"
           : "bg-transparent py-4"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Official Brand Logo */}
-        <Link href="/" className="flex items-center gap-3.5 group relative z-50">
-          <div className="relative w-14 h-14 sm:w-15 sm:h-15 rounded-2xl bg-white/[0.05] border border-white/15 p-1.5 flex items-center justify-center shadow-xl transition-all duration-300 group-hover:scale-105 group-hover:border-[var(--color-primary)]/50 group-hover:shadow-[0_0_25px_rgba(0,200,83,0.35)] shrink-0">
+        <Link href="/" className="flex items-center gap-3.5 group">
+          <div className="relative w-13 h-13 sm:w-15 sm:h-15 rounded-2xl bg-white/[0.05] border border-white/15 p-1.5 flex items-center justify-center shadow-xl transition-all duration-300 group-hover:scale-105 group-hover:border-[var(--color-primary)]/50 group-hover:shadow-[0_0_25px_rgba(0,200,83,0.35)] shrink-0">
             <Image
               src="/icon.png"
               alt="Lilhawkers Emblem"
@@ -69,83 +94,143 @@ export default function Navbar() {
 
         {/* Desktop Nav Links */}
         <div className="hidden lg:flex items-center gap-8">
-          {navLinks.map((link) => (
+          {navItems.slice(0, 3).map((item) => (
             <Link
-              key={link.label}
-              href={link.href}
+              key={item.label}
+              href={item.href}
               className="relative text-sm font-medium text-[var(--color-text-secondary)] hover:text-white transition-colors duration-300 after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-[var(--color-primary)] after:to-[var(--color-gradient-end)] after:transition-all after:duration-300 hover:after:w-full"
             >
-              {link.label}
+              {item.label}
             </Link>
           ))}
         </div>
 
-        {/* CTA Button */}
+        {/* Desktop CTA Button */}
         <div className="hidden lg:block">
           <Link href="/contact" className="btn-primary text-sm">
             <span>Book Free Demo</span>
           </Link>
         </div>
 
-        {/* Mobile Menu Toggle Button */}
+        {/* Mobile Modern Hamburger Trigger */}
         <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="lg:hidden relative z-50 w-10 h-10 flex items-center justify-center rounded-lg bg-white/5 border border-white/10 active:scale-95 transition-transform"
-          aria-label="Toggle menu"
+          onClick={() => setMobileOpen(true)}
+          className="lg:hidden relative w-11 h-11 flex items-center justify-center rounded-xl bg-white/5 border border-white/15 text-white active:scale-95 transition-all hover:bg-white/10 hover:border-[var(--color-primary)]/40 shadow-md"
+          aria-label="Open Navigation Menu"
           aria-expanded={mobileOpen}
         >
-          <div className="flex flex-col gap-1.5 w-5">
-            <span
-              className={`block h-0.5 bg-white rounded-full transition-transform duration-300 ${
-                mobileOpen ? "rotate-45 translate-y-2" : ""
-              }`}
-            />
-            <span
-              className={`block h-0.5 bg-white rounded-full transition-opacity duration-200 ${
-                mobileOpen ? "opacity-0" : ""
-              }`}
-            />
-            <span
-              className={`block h-0.5 bg-white rounded-full transition-transform duration-300 ${
-                mobileOpen ? "-rotate-45 -translate-y-2" : ""
-              }`}
-            />
+          <div className="flex flex-col items-end gap-1.5 w-5">
+            <span className="block h-0.5 w-5 bg-white rounded-full transition-all" />
+            <span className="block h-0.5 w-3.5 bg-[var(--color-primary)] rounded-full transition-all" />
+            <span className="block h-0.5 w-5 bg-white rounded-full transition-all" />
           </div>
         </button>
       </div>
 
-      {/* Lightweight, High-Performance Mobile Menu Drawer */}
+      {/* Mobile Drawer Backdrop Overlay */}
       <div
-        className={`lg:hidden fixed inset-0 z-40 bg-[#070908] transition-all duration-300 flex flex-col justify-between p-6 pt-28 ${
-          mobileOpen
-            ? "opacity-100 translate-y-0 pointer-events-auto"
-            : "opacity-0 -translate-y-4 pointer-events-none"
+        onClick={() => setMobileOpen(false)}
+        className={`lg:hidden fixed inset-0 z-50 bg-black/70 transition-opacity duration-300 ${
+          mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+      />
+
+      {/* Mobile Premium Slide-over Drawer (Right Side) */}
+      <div
+        className={`lg:hidden fixed top-0 right-0 bottom-0 z-50 w-[88vw] max-w-[360px] bg-[#0c0f0d] border-l border-white/15 shadow-2xl flex flex-col justify-between transition-transform duration-300 ease-out transform ${
+          mobileOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex flex-col items-center justify-center flex-1 gap-6 text-center">
-          {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              onClick={() => setMobileOpen(false)}
-              className="text-2xl font-[var(--font-heading)] font-bold text-white hover:text-[var(--color-primary)] transition-colors py-2 px-6 rounded-xl hover:bg-white/5 active:scale-95"
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Link
-            href="/contact"
+        {/* Drawer Header */}
+        <div className="p-5 border-b border-white/10 flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 p-1 flex items-center justify-center">
+              <Image src="/icon.png" alt="Logo" width={28} height={28} className="object-contain" />
+            </div>
+            <div>
+              <span className="font-bold text-white text-xs block leading-none">LILHAWKERS</span>
+              <span className="text-[8px] text-[var(--color-primary)] font-semibold uppercase tracking-wider block mt-0.5">
+                Sports Management
+              </span>
+            </div>
+          </div>
+
+          <button
             onClick={() => setMobileOpen(false)}
-            className="btn-primary text-base w-full max-w-xs mt-4 py-3.5 justify-center"
+            className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 text-zinc-300 hover:text-white hover:bg-white/10 flex items-center justify-center text-sm font-bold active:scale-95 transition-all"
+            aria-label="Close menu"
           >
-            <span>Book Free Demo</span>
-          </Link>
+            ✕
+          </button>
         </div>
 
-        {/* Mobile Menu Footer Info */}
-        <div className="pt-6 border-t border-white/10 text-center text-xs text-zinc-400 space-y-1">
-          <p className="font-semibold text-white">Lilhawkers Sports Management</p>
-          <p>📞 +91 81682 26462 &bull; ✉ info@lilhawkers.com</p>
+        {/* Drawer Navigation Links */}
+        <div className="p-4 flex-1 overflow-y-auto space-y-2">
+          <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-[var(--color-primary)] px-2 block mb-2">
+            Navigation Menu
+          </span>
+
+          {navItems.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-[var(--color-primary)]/40 hover:bg-white/[0.06] active:scale-[0.98] transition-all group"
+            >
+              <div className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-sm shrink-0 group-hover:scale-110 transition-transform">
+                {item.icon}
+              </div>
+              <div className="min-w-0 flex-1">
+                <div className="flex items-center justify-between">
+                  <h4 className="text-sm font-bold text-white group-hover:text-[var(--color-primary)] transition-colors">
+                    {item.label}
+                  </h4>
+                  <span className="text-[9px] font-mono text-zinc-500 font-bold">
+                    {item.num}
+                  </span>
+                </div>
+                <p className="text-[10px] text-zinc-400 truncate mt-0.5">
+                  {item.sub}
+                </p>
+              </div>
+            </Link>
+          ))}
+
+          {/* Primary CTA in Drawer */}
+          <div className="pt-3">
+            <Link
+              href="/contact"
+              onClick={() => setMobileOpen(false)}
+              className="btn-primary text-xs w-full py-3 justify-center shadow-lg shadow-[var(--color-primary)]/20"
+            >
+              <span>Book Free Demo Session →</span>
+            </Link>
+          </div>
+        </div>
+
+        {/* Drawer Footer Contact Bar */}
+        <div className="p-4 border-t border-white/10 bg-white/[0.01] space-y-2 text-xs">
+          <div className="flex items-center justify-between">
+            <span className="text-[10px] text-zinc-400 uppercase font-semibold">Direct Call</span>
+            <a
+              href="tel:+918168226462"
+              className="font-bold text-white hover:text-[var(--color-primary)] transition-colors"
+            >
+              +91 81682 26462
+            </a>
+          </div>
+          <div className="flex items-center justify-between">
+            <span className="text-[10px] text-zinc-400 uppercase font-semibold">Email</span>
+            <a
+              href="mailto:info@lilhawkers.com"
+              className="text-zinc-300 hover:text-white transition-colors text-[11px]"
+            >
+              info@lilhawkers.com
+            </a>
+          </div>
+          <div className="pt-1 text-[9px] text-zinc-500 text-center leading-tight">
+            Bahadurgarh, Delhi NCR 124507 &bull; Reg. 2019
+          </div>
         </div>
       </div>
     </nav>
