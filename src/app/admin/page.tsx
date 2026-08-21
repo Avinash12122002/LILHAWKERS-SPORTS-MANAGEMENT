@@ -59,24 +59,39 @@ export default function AdminDashboard() {
   const [deleteCandidate, setDeleteCandidate] = useState<DemoSubmission | null>(null);
   const [copiedId, setCopiedId] = useState(false);
 
-  // Check auth on mount
+  // Check auth and load submissions on mount
   useEffect(() => {
-    checkAuth();
-  }, []);
-
-  const checkAuth = async () => {
-    try {
-      const res = await fetch("/api/admin/check");
-      if (res.ok) {
-        setIsAuthenticated(true);
-        fetchSubmissions();
-      } else {
-        setIsAuthenticated(false);
+    let mounted = true;
+    async function initAuth() {
+      try {
+        const res = await fetch("/api/admin/check");
+        if (res.ok && mounted) {
+          setIsAuthenticated(true);
+          const demoRes = await fetch("/api/demo");
+          const data = await demoRes.json();
+          if (demoRes.ok && data.success && mounted) {
+            setSubmissions(data.submissions);
+            setStorageType(data.storage === "mongodb" ? "MongoDB Database" : "Local Store");
+          }
+        } else if (mounted) {
+          setIsAuthenticated(false);
+        }
+      } catch {
+        if (mounted) {
+          setIsAuthenticated(false);
+        }
+      } finally {
+        if (mounted) {
+          setLoading(false);
+        }
       }
-    } catch {
-      setIsAuthenticated(false);
     }
-  };
+
+    initAuth();
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -540,7 +555,7 @@ export default function AdminDashboard() {
                 <select
                   aria-label="Filter by date"
                   value={dateFilter}
-                  onChange={(e) => setDateFilter(e.target.value as any)}
+                  onChange={(e) => setDateFilter(e.target.value as "all" | "today" | "yesterday" | "7days" | "30days" | "custom")}
                   className="h-10 px-2.5 bg-white/[0.04] border border-white/10 rounded-xl text-xs text-white focus:border-[var(--color-primary)] focus:outline-none cursor-pointer"
                 >
                   <option value="all" className="bg-[var(--color-dark)]">All Time</option>
