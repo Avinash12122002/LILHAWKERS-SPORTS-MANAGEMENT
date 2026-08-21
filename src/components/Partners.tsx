@@ -45,7 +45,7 @@ interface PartnersProps {
   showMarquee?: boolean;
 }
 
-export default function Partners({ showMarquee = false }: PartnersProps) {
+export default function Partners({ showMarquee = true }: PartnersProps) {
   return (
     <RevealWrapper>
       <section id="partners" className="section-padding relative overflow-hidden">
