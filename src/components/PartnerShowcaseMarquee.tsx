@@ -428,7 +428,7 @@ export default function PartnerShowcaseMarquee() {
   const row2 = allPartnerCards.slice(11, 22);
 
   return (
-    <div className="relative w-full overflow-hidden py-4 space-y-4">
+    <div className="relative w-full overflow-hidden py-4 space-y-4 [contain:content]">
       {/* Left and Right Fade Gradient Masks */}
       <div className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-24 bg-gradient-to-r from-[var(--color-dark)] to-transparent z-20" />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-24 bg-gradient-to-l from-[var(--color-dark)] to-transparent z-20" />

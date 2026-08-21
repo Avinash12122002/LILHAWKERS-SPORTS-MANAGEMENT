@@ -35,15 +35,15 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#0a0a0a]/95 backdrop-blur-xl py-2.5 shadow-lg shadow-black/40 border-b border-white/5"
+          ? "bg-[#0a0a0a]/95 py-2.5 shadow-lg shadow-black/40 border-b border-white/10"
           : "bg-transparent py-4"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Official Brand Logo */}
-        <Link href="/" className="flex items-center gap-3.5 group">
+        <Link href="/" className="flex items-center gap-3.5 group relative z-50">
           <div className="relative w-14 h-14 sm:w-15 sm:h-15 rounded-2xl bg-white/[0.05] border border-white/15 p-1.5 flex items-center justify-center shadow-xl transition-all duration-300 group-hover:scale-105 group-hover:border-[var(--color-primary)]/50 group-hover:shadow-[0_0_25px_rgba(0,200,83,0.35)] shrink-0">
             <Image
               src="/icon.png"
@@ -87,47 +87,48 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Toggle Button */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="lg:hidden relative w-10 h-10 flex items-center justify-center"
+          className="lg:hidden relative z-50 w-10 h-10 flex items-center justify-center rounded-lg bg-white/5 border border-white/10 active:scale-95 transition-transform"
           aria-label="Toggle menu"
           aria-expanded={mobileOpen}
         >
-          <div className="flex flex-col gap-1.5 w-6">
+          <div className="flex flex-col gap-1.5 w-5">
             <span
-              className={`block h-0.5 bg-white rounded transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-2" : ""
-                }`}
+              className={`block h-0.5 bg-white rounded-full transition-transform duration-300 ${
+                mobileOpen ? "rotate-45 translate-y-2" : ""
+              }`}
             />
             <span
-              className={`block h-0.5 bg-white rounded transition-all duration-300 ${mobileOpen ? "opacity-0 scale-0" : ""
-                }`}
+              className={`block h-0.5 bg-white rounded-full transition-opacity duration-200 ${
+                mobileOpen ? "opacity-0" : ""
+              }`}
             />
             <span
-              className={`block h-0.5 bg-white rounded transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-2" : ""
-                }`}
+              className={`block h-0.5 bg-white rounded-full transition-transform duration-300 ${
+                mobileOpen ? "-rotate-45 -translate-y-2" : ""
+              }`}
             />
           </div>
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Lightweight, High-Performance Mobile Menu Drawer */}
       <div
-        className={`lg:hidden fixed inset-0 top-0 bg-[var(--color-dark)]/95 backdrop-blur-xl transition-all duration-500 ${mobileOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
-          }`}
+        className={`lg:hidden fixed inset-0 z-40 bg-[#070908] transition-all duration-300 flex flex-col justify-between p-6 pt-28 ${
+          mobileOpen
+            ? "opacity-100 translate-y-0 pointer-events-auto"
+            : "opacity-0 -translate-y-4 pointer-events-none"
+        }`}
       >
-        <div className="flex flex-col items-center justify-center h-full gap-8">
-          {navLinks.map((link, i) => (
+        <div className="flex flex-col items-center justify-center flex-1 gap-6 text-center">
+          {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="text-2xl font-[var(--font-heading)] font-semibold text-white hover:text-[var(--color-primary)] transition-all duration-300"
-              style={{
-                animationDelay: `${i * 0.1}s`,
-              }}
+              className="text-2xl font-[var(--font-heading)] font-bold text-white hover:text-[var(--color-primary)] transition-colors py-2 px-6 rounded-xl hover:bg-white/5 active:scale-95"
             >
               {link.label}
             </Link>
@@ -135,10 +136,16 @@ export default function Navbar() {
           <Link
             href="/contact"
             onClick={() => setMobileOpen(false)}
-            className="btn-primary mt-4"
+            className="btn-primary text-base w-full max-w-xs mt-4 py-3.5 justify-center"
           >
             <span>Book Free Demo</span>
           </Link>
+        </div>
+
+        {/* Mobile Menu Footer Info */}
+        <div className="pt-6 border-t border-white/10 text-center text-xs text-zinc-400 space-y-1">
+          <p className="font-semibold text-white">Lilhawkers Sports Management</p>
+          <p>📞 +91 81682 26462 &bull; ✉ info@lilhawkers.com</p>
         </div>
       </div>
     </nav>
