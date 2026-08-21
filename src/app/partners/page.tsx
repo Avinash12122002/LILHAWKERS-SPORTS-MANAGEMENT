@@ -84,8 +84,8 @@ export default function PartnersAndWhyUsPage() {
         </div>
       </section>
 
-      {/* SECTION 1: Who We Partner With */}
-      <Partners />
+      {/* SECTION 1: Who We Partner With & Partner Showcase Marquee */}
+      <Partners showMarquee={true} />
 
       {/* SECTION 2: Why Organisations Choose Lilhawkers (Unified Block) */}
       <section className="py-20 border-t border-white/5 bg-white/[0.01] relative overflow-hidden">

@@ -6,20 +6,20 @@ const partners = [
   {
     icon: (
       <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
       </svg>
     ),
     title: "Private Schools",
-    desc: "As a structured PE / co-curricular sports program",
+    desc: "To deliver structured PE and physical literacy",
   },
   {
     icon: (
       <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
       </svg>
     ),
     title: "Sports Clubs",
-    desc: "To strengthen junior development pathways",
+    desc: "To build a systematic athlete development pathway",
   },
   {
     icon: (
@@ -41,7 +41,11 @@ const partners = [
   },
 ];
 
-export default function Partners() {
+interface PartnersProps {
+  showMarquee?: boolean;
+}
+
+export default function Partners({ showMarquee = false }: PartnersProps) {
   return (
     <RevealWrapper>
       <section id="partners" className="section-padding relative overflow-hidden">
@@ -86,10 +90,10 @@ export default function Partners() {
             ))}
           </div>
 
-          {/* 22-Card Alternating Partner Showcase Marquee */}
-          <div className="my-14">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6 px-1">
-              <div>
+          {/* 22-Card Alternating Partner Showcase Marquee (Rendered only on Partners Page) */}
+          {showMarquee && (
+            <div className="my-14">
+              <div className="mb-6 px-1">
                 <span className="text-[10px] font-mono uppercase tracking-widest text-[var(--color-primary)] font-bold block">
                   Institutional Deployments &bull; North India
                 </span>
@@ -97,14 +101,10 @@ export default function Partners() {
                   Trusted Across Schools, Clubs, Training Centres &amp; Communities
                 </h3>
               </div>
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-zinc-300 w-fit">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                22 Active Partner Showcases
-              </span>
-            </div>
 
-            <PartnerShowcaseMarquee />
-          </div>
+              <PartnerShowcaseMarquee />
+            </div>
+          )}
 
           {/* CTA callout */}
           <div className="reveal text-center">
