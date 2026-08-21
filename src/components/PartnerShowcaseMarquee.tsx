@@ -352,10 +352,10 @@ export const allPartnerCards: PartnerCardData[] = [
 
 function PartnerCard({ card }: { card: PartnerCardData }) {
   return (
-    <div className="w-[245px] sm:w-[270px] shrink-0 rounded-xl overflow-hidden bg-[#111214] border border-white/10 shadow-xl hover:border-[var(--color-primary)]/40 transition-all duration-300 flex flex-col justify-between group">
+    <div className="w-[245px] sm:w-[270px] shrink-0 rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-sm hover:shadow-xl hover:border-[var(--color-primary)]/50 transition-all duration-300 flex flex-col justify-between group">
       {/* Top Colored Banner Strip */}
       <div
-        className={`bg-gradient-to-r ${card.bannerGradient} px-3 py-1.5 flex items-center justify-between shadow-sm`}
+        className={`bg-gradient-to-r ${card.bannerGradient} px-3 py-1.5 flex items-center justify-between shadow-xs`}
       >
         <div className="flex items-center gap-1.5">
           <span className="text-xs">{card.categoryIcon}</span>
@@ -363,13 +363,13 @@ function PartnerCard({ card }: { card: PartnerCardData }) {
             {card.category}
           </span>
         </div>
-        <span className="text-[8px] font-semibold px-1.5 py-0.5 rounded bg-black/30 text-white backdrop-blur-sm truncate max-w-[110px]">
+        <span className="text-[8px] font-semibold px-1.5 py-0.5 rounded bg-black/25 text-white backdrop-blur-xs truncate max-w-[110px]">
           {card.sport}
         </span>
       </div>
 
       {/* Real Sports Photo Banner */}
-      <div className="relative h-28 sm:h-32 w-full overflow-hidden bg-black/40">
+      <div className="relative h-28 sm:h-32 w-full overflow-hidden bg-slate-100">
         <Image
           src={card.image}
           alt={`${card.partnerName} - ${card.sport}`}
@@ -378,40 +378,40 @@ function PartnerCard({ card }: { card: PartnerCardData }) {
           className="object-cover group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#111214] via-transparent to-transparent opacity-80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
       </div>
 
       {/* Card Content */}
-      <div className="p-3 space-y-2 flex-1 flex flex-col justify-between">
+      <div className="p-3.5 space-y-2 flex-1 flex flex-col justify-between">
         {/* Star Rating & Badge */}
         <div>
-          <div className="flex items-center justify-between mb-1">
-            <div className="flex items-center gap-0.5 text-amber-400 text-[10px]">
+          <div className="flex items-center justify-between mb-1.5">
+            <div className="flex items-center gap-0.5 text-amber-500 text-[10px]">
               {"★".repeat(5)}
             </div>
-            <span className={`text-[8px] font-mono font-bold uppercase tracking-wider px-1.5 py-0.2 rounded border ${card.badgeClass}`}>
-              Verified Impact
+            <span className={`text-[8px] font-mono font-bold uppercase tracking-wider px-1.5 py-0.5 rounded border ${card.badgeClass}`}>
+              Verified Partner
             </span>
           </div>
 
           {/* Testimonial Quote */}
-          <p className="text-[11px] text-zinc-300 italic leading-snug line-clamp-2">
+          <p className="text-[11px] text-slate-600 italic leading-snug line-clamp-2">
             &ldquo;{card.quote}&rdquo;
           </p>
         </div>
 
         {/* Bottom Profile Footer */}
-        <div className="pt-2 border-t border-white/10 flex items-center gap-2.5">
+        <div className="pt-2.5 border-t border-slate-100 flex items-center gap-2.5">
           <div
-            className={`w-7 h-7 rounded-full ${card.avatarBg} text-white font-bold text-[10px] flex items-center justify-center shrink-0 shadow-sm border border-white/15`}
+            className={`w-7 h-7 rounded-full ${card.avatarBg} text-white font-bold text-[10px] flex items-center justify-center shrink-0 shadow-xs border border-white/40`}
           >
             {card.avatarInitials}
           </div>
           <div className="min-w-0 flex-1">
-            <h4 className="font-bold text-white text-[11px] truncate group-hover:text-[var(--color-primary)] transition-colors">
+            <h4 className="font-bold text-slate-900 text-[11px] truncate group-hover:text-[var(--color-primary)] transition-colors">
               {card.partnerName}
             </h4>
-            <span className="text-[9px] text-zinc-400 flex items-center gap-0.5 truncate">
+            <span className="text-[9px] text-slate-500 flex items-center gap-0.5 truncate">
               <span>📍</span>
               <span className="truncate">{card.location}</span>
             </span>
@@ -430,8 +430,8 @@ export default function PartnerShowcaseMarquee() {
   return (
     <div className="relative w-full overflow-hidden py-4 space-y-4">
       {/* Left and Right Fade Gradient Masks */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-24 bg-gradient-to-r from-[var(--color-dark)] to-transparent z-20" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-24 bg-gradient-to-l from-[var(--color-dark)] to-transparent z-20" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-24 bg-gradient-to-r from-[#f8fafc] to-transparent z-20" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-24 bg-gradient-to-l from-[#f8fafc] to-transparent z-20" />
 
       {/* Row 1: Scrolling Left (Cards 1 to 11 duplicated for seamless infinite loop) */}
       <div className="flex overflow-hidden group/marquee">

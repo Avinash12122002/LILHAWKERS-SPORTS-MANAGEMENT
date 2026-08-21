@@ -10,7 +10,7 @@ const partners = [
       </svg>
     ),
     title: "Private Schools",
-    desc: "To deliver structured PE and physical literacy",
+    desc: "To deliver structured PE and physical literacy curricula",
   },
   {
     icon: (
@@ -48,22 +48,22 @@ interface PartnersProps {
 export default function Partners({ showMarquee = true }: PartnersProps) {
   return (
     <RevealWrapper>
-      <section id="partners" className="section-padding relative overflow-hidden">
-        <div className="absolute right-0 bottom-0 w-[500px] h-[500px] rounded-full bg-[var(--color-primary)]/3 blur-[120px] pointer-events-none" />
+      <section id="partners" className="section-padding relative overflow-hidden bg-slate-50/60 border-t border-slate-200/80">
+        <div className="absolute right-0 bottom-0 w-[500px] h-[500px] rounded-full bg-[var(--color-primary)]/5 blur-[120px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Section Header */}
           <div className="text-center mb-10 reveal">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass mb-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)]" />
-              <span className="text-xs font-medium uppercase tracking-[0.15em] text-[var(--color-text-secondary)]">
+              <span className="text-xs font-bold uppercase tracking-[0.15em] text-[var(--color-primary)]">
                 Who We Partner With
               </span>
             </div>
-            <h2 className="font-[var(--font-heading)] text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
+            <h2 className="font-[var(--font-heading)] text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
               Who We <span className="gradient-text">Partner With</span>
             </h2>
-            <p className="text-[var(--color-text-secondary)] text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
               We partner with organisations that want to offer their participants
               a structured sports development experience.
             </p>
@@ -74,30 +74,30 @@ export default function Partners({ showMarquee = true }: PartnersProps) {
             {partners.map((partner, i) => (
               <div
                 key={partner.title}
-                className="reveal glass-card rounded-xl p-7 group text-center"
+                className="reveal glass-card rounded-2xl p-7 group text-center border border-slate-200 bg-white shadow-xs hover:shadow-lg transition-all"
                 style={{ transitionDelay: `${i * 0.1}s` }}
               >
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[var(--color-primary)]/15 to-[var(--color-gradient-end)]/15 flex items-center justify-center text-[var(--color-primary)] mx-auto mb-5 group-hover:scale-110 group-hover:from-[var(--color-primary)]/25 group-hover:to-[var(--color-gradient-end)]/25 transition-all duration-300">
+                <div className="w-16 h-16 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-[var(--color-primary)] mx-auto mb-5 group-hover:scale-110 group-hover:bg-emerald-100/60 transition-all duration-300">
                   {partner.icon}
                 </div>
-                <h3 className="font-[var(--font-heading)] text-lg font-semibold text-white mb-2 group-hover:text-[var(--color-primary)] transition-colors">
+                <h3 className="font-[var(--font-heading)] text-lg font-bold text-slate-900 mb-2 group-hover:text-[var(--color-primary)] transition-colors">
                   {partner.title}
                 </h3>
-                <p className="text-sm text-[var(--color-text-secondary)]">
+                <p className="text-sm text-slate-600">
                   {partner.desc}
                 </p>
               </div>
             ))}
           </div>
 
-          {/* 22-Card Alternating Partner Showcase Marquee (Rendered only on Partners Page) */}
+          {/* 22-Card Alternating Partner Showcase Marquee */}
           {showMarquee && (
             <div className="my-14">
               <div className="mb-6 px-1">
                 <span className="text-[10px] font-mono uppercase tracking-widest text-[var(--color-primary)] font-bold block">
                   Institutional Deployments &bull; North India
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-white font-[var(--font-heading)] mt-0.5">
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 font-[var(--font-heading)] mt-0.5">
                   Trusted Across Schools, Clubs, Training Centres &amp; Communities
                 </h3>
               </div>
@@ -108,11 +108,11 @@ export default function Partners({ showMarquee = true }: PartnersProps) {
 
           {/* CTA callout */}
           <div className="reveal text-center">
-            <div className="glass-card rounded-2xl p-8 sm:p-10 max-w-3xl mx-auto">
-              <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed mb-6">
+            <div className="glass-card rounded-3xl p-8 sm:p-10 max-w-3xl mx-auto border border-slate-200 shadow-md bg-white">
+              <p className="text-lg text-slate-700 leading-relaxed mb-6">
                 If your organisation has the space and the participants but not a
                 structured sports curriculum,{" "}
-                <span className="text-white font-semibold">
+                <span className="text-slate-900 font-bold">
                   that&apos;s exactly the gap we fill.
                 </span>
               </p>

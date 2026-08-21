@@ -438,23 +438,23 @@ export default function ProgramsPage() {
   const [selectedProfile, setSelectedProfile] = useState(physicalProfiles[0]);
 
   return (
-    <main className="min-h-screen bg-[var(--color-dark)] text-[var(--color-text)]">
+    <main className="min-h-screen bg-[#f8fafc] text-slate-900">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 relative overflow-hidden">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-r from-[var(--color-primary)]/15 via-[var(--color-gradient-mid)]/15 to-[var(--color-gradient-end)]/10 rounded-full blur-3xl pointer-events-none" />
+      <section className="pt-32 pb-16 relative overflow-hidden bg-white border-b border-slate-200">
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-r from-emerald-500/10 to-sky-500/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl">
-            <span className="inline-block px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest bg-[var(--color-primary)]/10 text-[var(--color-primary)] border border-[var(--color-primary)]/20 mb-4">
+            <span className="inline-block px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-emerald-50 text-[var(--color-primary)] border border-emerald-200 mb-4">
               Comprehensive Sports Architecture
             </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-[var(--font-heading)] text-white tracking-tight leading-[1.1]">
-              Approach, System & <br />
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-[var(--font-heading)] text-slate-900 tracking-tight leading-[1.1]">
+              Approach, System &amp; <br />
               <span className="gradient-text">6-Stage Programs</span>
             </h1>
-            <p className="mt-6 text-base sm:text-lg text-[var(--color-text-secondary)] leading-relaxed">
+            <p className="mt-6 text-base sm:text-lg text-slate-600 leading-relaxed">
               Explore the complete Lilhawkers operating continuum: from our <strong>scientific progression methodology</strong> and <strong>7-step turnkey delivery system</strong> to our <strong>six lifespan age stages</strong> and <strong>adaptive body evaluation engine</strong>.
             </p>
           </div>
@@ -465,12 +465,12 @@ export default function ProgramsPage() {
       <ApproachAndSystem />
 
       {/* 22-Card Partner Showcase Marquee (Above 6 Stages) */}
-      <section className="py-14 border-y border-white/5 bg-[#080a09] relative overflow-hidden">
+      <section className="py-14 border-y border-slate-200 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
           <span className="text-[10px] font-mono uppercase tracking-widest text-[var(--color-primary)] font-bold block">
             Institutional Deployments &bull; North India
           </span>
-          <h3 className="text-xl sm:text-2xl font-bold text-white font-[var(--font-heading)] mt-0.5">
+          <h3 className="text-xl sm:text-2xl font-bold text-slate-900 font-[var(--font-heading)] mt-0.5">
             Trusted Across Schools, Clubs, Training Centres &amp; Communities
           </h3>
         </div>
@@ -479,16 +479,16 @@ export default function ProgramsPage() {
       </section>
 
       {/* SECTION 2: 6 Lifespan Stages Matrix */}
-      <section className="py-20 border-t border-white/5 bg-white/[0.01]">
+      <section className="py-20 border-t border-slate-200 bg-slate-50/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="inline-block px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest bg-[var(--color-gradient-end)]/10 text-[var(--color-gradient-end)] border border-[var(--color-gradient-end)]/20 mb-3">
+            <span className="inline-block px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-emerald-50 text-[var(--color-primary)] border border-emerald-200 mb-3">
               Lifespan Curriculum
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold font-[var(--font-heading)] text-white">
+            <h2 className="text-3xl sm:text-4xl font-extrabold font-[var(--font-heading)] text-slate-900">
               The Six-Stage Sports Development Matrix
             </h2>
-            <p className="mt-3 text-sm sm:text-base text-[var(--color-text-secondary)]">
+            <p className="mt-3 text-sm sm:text-base text-slate-600">
               Explore how each stage is engineered for specific biomechanical, physiological, and cognitive development.
             </p>
           </div>
@@ -497,9 +497,9 @@ export default function ProgramsPage() {
             {sixStages.map((stage) => (
               <div
                 key={stage.number}
-                className={`glass-card p-7 rounded-3xl border border-white/10 flex flex-col justify-between transition-all duration-300 ${stage.borderAccent} group`}
+                className="glass-card p-7 rounded-3xl border border-slate-200 flex flex-col justify-between transition-all duration-300 hover:border-[var(--color-primary)]/40 hover:shadow-xl group bg-white"
                 style={{
-                  background: `radial-gradient(ellipse at 50% 0%, ${stage.bgAccent}, transparent 75%), rgba(17, 17, 17, 0.75)`,
+                  background: `radial-gradient(ellipse at 50% 0%, ${stage.bgAccent}, transparent 75%), #ffffff`,
                 }}
               >
                 <div>
@@ -509,7 +509,7 @@ export default function ProgramsPage() {
                     >
                       {stage.number}
                     </span>
-                    <span className="px-3 py-1 rounded-full text-xs font-semibold bg-white/5 text-white/90 border border-white/10">
+                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-700 border border-slate-200">
                       {stage.ageRange}
                     </span>
                   </div>
@@ -517,21 +517,21 @@ export default function ProgramsPage() {
                   <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--color-primary)] block mb-1">
                     {stage.targetGroup}
                   </span>
-                  <h3 className="text-xl font-bold text-white font-[var(--font-heading)] mb-2 group-hover:text-[var(--color-primary)] transition-colors">
+                  <h3 className="text-xl font-bold text-slate-900 font-[var(--font-heading)] mb-2 group-hover:text-[var(--color-primary)] transition-colors">
                     Stage {stage.number}: {stage.name}
                   </h3>
-                  <p className="text-xs text-[var(--color-gradient-end)] font-medium mb-4 leading-snug">
+                  <p className="text-xs text-sky-700 font-semibold mb-4 leading-snug">
                     {stage.tagline}
                   </p>
-                  <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed mb-6">
+                  <p className="text-xs text-slate-600 leading-relaxed mb-6">
                     {stage.overview}
                   </p>
 
-                  <div className="space-y-3 pt-4 border-t border-white/5">
-                    <h4 className="text-[11px] font-bold uppercase tracking-wider text-white">
+                  <div className="space-y-3 pt-4 border-t border-slate-100">
+                    <h4 className="text-[11px] font-bold uppercase tracking-wider text-slate-900">
                       Curriculum Focus:
                     </h4>
-                    <ul className="space-y-2 text-xs text-[var(--color-text-secondary)]">
+                    <ul className="space-y-2 text-xs text-slate-600">
                       {stage.curriculumHighlights.slice(0, 3).map((item, idx) => (
                         <li key={idx} className="flex items-start gap-2">
                           <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] shrink-0 mt-1.5" />
@@ -542,15 +542,15 @@ export default function ProgramsPage() {
                   </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs">
-                  <span className="text-[var(--color-text-secondary)]">Evaluated Weekly</span>
+                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
+                  <span className="text-slate-500 font-medium">Evaluated Weekly</span>
                   <button
                     type="button"
                     onClick={() => {
                       setSelectedStage(stage);
                       document.getElementById("evaluator")?.scrollIntoView({ behavior: "smooth" });
                     }}
-                    className="text-[var(--color-primary)] hover:underline font-semibold flex items-center gap-1"
+                    className="text-[var(--color-primary)] hover:underline font-bold flex items-center gap-1 cursor-pointer"
                   >
                     Simulate Pathway →
                   </button>
@@ -562,23 +562,21 @@ export default function ProgramsPage() {
       </section>
 
       {/* SECTION 3: Interactive Sports Manager Evaluation & Adaptive Calibration Engine */}
-      <section id="evaluator" className="py-20 border-t border-white/5 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--color-primary)]/5 rounded-full blur-[140px] pointer-events-none" />
-
+      <section id="evaluator" className="py-20 border-t border-slate-200 relative overflow-hidden bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="inline-block px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest bg-[var(--color-primary)]/10 text-[var(--color-primary)] border border-[var(--color-primary)]/20 mb-3">
+            <span className="inline-block px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-emerald-50 text-[var(--color-primary)] border border-emerald-200 mb-3">
               Adaptive Evaluation Engine
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold font-[var(--font-heading)] text-white">
+            <h2 className="text-3xl sm:text-4xl font-extrabold font-[var(--font-heading)] text-slate-900">
               How Sports Managers Adapt Pathways to Individual Bodies
             </h2>
-            <p className="mt-3 text-sm sm:text-base text-[var(--color-text-secondary)]">
+            <p className="mt-3 text-sm sm:text-base text-slate-600">
               No two participants are identical. If a person in the Performance or Foundation stage is overweight, lean, joint-sensitive, or deconditioned, our sports managers dynamically calibrate drills, loading, and recovery metrics.
             </p>
           </div>
 
-          <div className="glass-card p-6 sm:p-10 rounded-3xl border border-white/10 shadow-2xl space-y-10">
+          <div className="glass-card p-6 sm:p-10 rounded-3xl border border-slate-200 shadow-xl space-y-10 bg-slate-50/60">
             {/* Step 1: Choose Stage */}
             <div>
               <label className="text-[11px] font-bold uppercase tracking-wider text-[var(--color-primary)] block mb-2.5">
@@ -590,21 +588,21 @@ export default function ProgramsPage() {
                     key={stg.number}
                     type="button"
                     onClick={() => setSelectedStage(stg)}
-                    className={`p-2.5 sm:p-3 rounded-xl border text-left transition-all duration-200 cursor-pointer flex flex-col justify-between ${
+                    className={`p-3 rounded-2xl border text-left transition-all duration-200 cursor-pointer flex flex-col justify-between ${
                       selectedStage.number === stg.number
-                        ? "bg-[var(--color-primary)]/15 border-[var(--color-primary)] text-white shadow-lg shadow-[var(--color-primary)]/10"
-                        : "bg-white/[0.02] border-white/5 text-[var(--color-text-secondary)] hover:border-white/20 hover:text-white"
+                        ? "bg-emerald-600 border-emerald-600 text-white shadow-md"
+                        : "bg-white border-slate-200 text-slate-700 hover:border-slate-300"
                     }`}
                   >
                     <div>
-                      <span className="text-[10px] font-mono font-bold block text-[var(--color-primary)]">
+                      <span className={`text-[10px] font-mono font-bold block ${selectedStage.number === stg.number ? "text-emerald-100" : "text-[var(--color-primary)]"}`}>
                         Stage {stg.number}
                       </span>
-                      <span className="text-xs sm:text-[13px] font-bold block font-[var(--font-heading)] text-white mt-0.5 leading-snug">
+                      <span className={`text-xs sm:text-[13px] font-bold block font-[var(--font-heading)] mt-0.5 leading-snug ${selectedStage.number === stg.number ? "text-white" : "text-slate-900"}`}>
                         {stg.name}
                       </span>
                     </div>
-                    <span className="text-[9px] text-[var(--color-text-secondary)] block mt-1.5 pt-1.5 border-t border-white/5">
+                    <span className={`text-[9px] block mt-1.5 pt-1.5 border-t ${selectedStage.number === stg.number ? "text-emerald-100 border-emerald-500/50" : "text-slate-500 border-slate-100"}`}>
                       {stg.ageRange}
                     </span>
                   </button>
@@ -614,7 +612,7 @@ export default function ProgramsPage() {
 
             {/* Step 2: Choose Physical Somatotype / Body Profile */}
             <div>
-              <label className="text-[11px] font-bold uppercase tracking-wider text-[var(--color-gradient-end)] block mb-2.5">
+              <label className="text-[11px] font-bold uppercase tracking-wider text-sky-700 block mb-2.5">
                 2. Select Physical Profile / Body Somatotype:
               </label>
               <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-2.5">
@@ -623,19 +621,19 @@ export default function ProgramsPage() {
                     key={prof.id}
                     type="button"
                     onClick={() => setSelectedProfile(prof)}
-                    className={`p-2.5 sm:p-3 rounded-xl border text-left transition-all duration-200 flex flex-col justify-between cursor-pointer ${
+                    className={`p-3 rounded-2xl border text-left transition-all duration-200 flex flex-col justify-between cursor-pointer ${
                       selectedProfile.id === prof.id
-                        ? "bg-[var(--color-gradient-end)]/15 border-[var(--color-gradient-end)] text-white shadow-lg shadow-[var(--color-gradient-end)]/10"
-                        : "bg-white/[0.02] border-white/5 text-[var(--color-text-secondary)] hover:border-white/20 hover:text-white"
+                        ? "bg-sky-600 border-sky-600 text-white shadow-md"
+                        : "bg-white border-slate-200 text-slate-700 hover:border-slate-300"
                     }`}
                   >
                     <div>
                       <div className="text-lg mb-1">{prof.icon}</div>
-                      <span className="text-[11px] sm:text-xs font-bold block font-[var(--font-heading)] text-white leading-snug">
+                      <span className={`text-[11px] sm:text-xs font-bold block font-[var(--font-heading)] leading-snug ${selectedProfile.id === prof.id ? "text-white" : "text-slate-900"}`}>
                         {prof.title}
                       </span>
                     </div>
-                    <span className="text-[8.5px] px-2 py-0.5 rounded-full bg-white/5 text-[var(--color-gradient-end)] border border-white/10 mt-2 inline-block font-semibold">
+                    <span className={`text-[8.5px] px-2 py-0.5 rounded-full border mt-2 inline-block font-bold ${selectedProfile.id === prof.id ? "bg-white/20 text-white border-white/30" : "bg-slate-100 text-slate-600 border-slate-200"}`}>
                       {prof.badge}
                     </span>
                   </button>
@@ -644,19 +642,19 @@ export default function ProgramsPage() {
             </div>
 
             {/* Step 3: Sports Manager Calibration Output Panel */}
-            <div className="p-6 sm:p-8 rounded-2xl bg-black/40 border border-white/10 space-y-6">
-              <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-white/10">
+            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-md space-y-6">
+              <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-100">
                 <div>
                   <span className="text-[10px] uppercase font-bold tracking-widest text-[var(--color-primary)] block">
                     Dynamic Pathway Calibration Result
                   </span>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white font-[var(--font-heading)] mt-0.5">
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 font-[var(--font-heading)] mt-0.5">
                     Stage {selectedStage.number} ({selectedStage.name}) &bull; {selectedProfile.title}
                   </h3>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-xs font-mono text-emerald-400 font-semibold">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="text-xs font-mono text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-full font-bold border border-emerald-200">
                     Sports Manager Active Override
                   </span>
                 </div>
@@ -674,40 +672,40 @@ export default function ProgramsPage() {
                 return (
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-4">
-                      <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5">
-                        <span className="text-[10px] uppercase tracking-wider text-[var(--color-text-secondary)] font-bold block">
-                          Targeted Intensity & Load Adjustment
+                      <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                        <span className="text-[10px] uppercase tracking-wider text-slate-500 font-bold block">
+                          Targeted Intensity &amp; Load Adjustment
                         </span>
-                        <p className="text-xs sm:text-sm text-white font-medium mt-1">
+                        <p className="text-xs sm:text-sm text-slate-900 font-medium mt-1">
                           {activeCalibration.intensity}
                         </p>
                       </div>
 
-                      <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5">
-                        <span className="text-[10px] uppercase tracking-wider text-[var(--color-text-secondary)] font-bold block">
-                          Curriculum & Sports Selection
+                      <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                        <span className="text-[10px] uppercase tracking-wider text-slate-500 font-bold block">
+                          Curriculum &amp; Sports Selection
                         </span>
-                        <p className="text-xs sm:text-sm text-white font-medium mt-1">
+                        <p className="text-xs sm:text-sm text-slate-900 font-medium mt-1">
                           {activeCalibration.sportsSelection}
                         </p>
                       </div>
                     </div>
 
                     <div className="space-y-4">
-                      <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5">
-                        <span className="text-[10px] uppercase tracking-wider text-[var(--color-text-secondary)] font-bold block">
+                      <div className="p-4 rounded-2xl bg-emerald-50/70 border border-emerald-200/80">
+                        <span className="text-[10px] uppercase tracking-wider text-emerald-800 font-bold block">
                           Sports Manager On-Ground Action
                         </span>
-                        <p className="text-xs sm:text-sm text-[var(--color-primary)] font-medium mt-1 leading-relaxed">
+                        <p className="text-xs sm:text-sm text-emerald-950 font-medium mt-1 leading-relaxed">
                           {activeCalibration.sportsManagerAction}
                         </p>
                       </div>
 
-                      <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5">
-                        <span className="text-[10px] uppercase tracking-wider text-[var(--color-text-secondary)] font-bold block">
+                      <div className="p-4 rounded-2xl bg-sky-50/70 border border-sky-200/80">
+                        <span className="text-[10px] uppercase tracking-wider text-sky-800 font-bold block">
                           Projected Milestone Outcome
                         </span>
-                        <p className="text-xs sm:text-sm text-emerald-400 font-semibold mt-1">
+                        <p className="text-xs sm:text-sm text-sky-950 font-bold mt-1">
                           {activeCalibration.expectedOutcome}
                         </p>
                       </div>
@@ -717,20 +715,20 @@ export default function ProgramsPage() {
               })()}
 
               {/* Evaluation Metrics Matrix for this combination */}
-              <div className="pt-4 border-t border-white/10">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-white mb-3">
+              <div className="pt-4 border-t border-slate-100">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900 mb-3">
                   Customized Evaluation Indicators Tracked for this Profile:
                 </h4>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                   {selectedStage.evaluationMetrics.map((metric, mIdx) => (
                     <div
                       key={mIdx}
-                      className="p-3 rounded-xl bg-white/[0.03] border border-white/10 text-center"
+                      className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-center"
                     >
-                      <span className="text-[10px] text-[var(--color-text-secondary)] uppercase block font-semibold">
+                      <span className="text-[10px] text-slate-500 uppercase block font-bold">
                         Metric {mIdx + 1}
                       </span>
-                      <span className="text-xs font-bold text-white mt-1 block">
+                      <span className="text-xs font-bold text-slate-900 mt-1 block">
                         {metric}
                       </span>
                     </div>
@@ -743,12 +741,12 @@ export default function ProgramsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 border-t border-white/5 text-center relative">
+      <section className="py-20 border-t border-slate-200 text-center relative bg-slate-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-extrabold font-[var(--font-heading)] text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl font-extrabold font-[var(--font-heading)] text-slate-900 mb-4">
             Implement This Structured Pathway in Your Organisation
           </h2>
-          <p className="text-sm sm:text-base text-[var(--color-text-secondary)] max-w-xl mx-auto mb-8">
+          <p className="text-sm sm:text-base text-slate-600 max-w-xl mx-auto mb-8">
             Partner with Lilhawkers to bring complete curriculum design, coach training, and adaptive physical evaluations to your school, club, or community.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
@@ -757,9 +755,9 @@ export default function ProgramsPage() {
             </Link>
             <Link
               href="/partners"
-              className="px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 text-white text-sm font-semibold border border-white/10 transition-colors"
+              className="px-6 py-3 rounded-full bg-white hover:bg-slate-100 text-slate-800 text-sm font-bold border border-slate-200 shadow-xs transition-colors"
             >
-              Explore Partners & Why Us →
+              Explore Partners &amp; Why Us →
             </Link>
           </div>
         </div>

@@ -8,8 +8,8 @@ const demographyPrograms = [
     title: "Children & Youth Development",
     ageRange: "Ages 3 – 20 Years",
     tagline: "Building Physical Foundations & Competitive Pathways",
-    color: "from-emerald-400 to-green-500",
-    bgAccent: "rgba(0, 200, 83, 0.08)",
+    color: "from-emerald-600 to-green-600",
+    bgAccent: "rgba(5, 150, 105, 0.06)",
     borderAccent: "hover:border-[var(--color-primary)]/50",
     features: [
       "Movement balance, spatial awareness & motor coordination",
@@ -23,8 +23,8 @@ const demographyPrograms = [
     title: "Professionals & Young Adults",
     ageRange: "Ages 20 – 35 Years",
     tagline: "Functional Conditioning & Recreational Sports Leagues",
-    color: "from-blue-400 to-indigo-500",
-    bgAccent: "rgba(59, 130, 246, 0.08)",
+    color: "from-blue-600 to-indigo-600",
+    bgAccent: "rgba(2, 132, 199, 0.06)",
     borderAccent: "hover:border-blue-500/50",
     features: [
       "High-intensity functional conditioning & metabolic resistance",
@@ -38,9 +38,9 @@ const demographyPrograms = [
     title: "Adults & Middle-Aged Fitness",
     ageRange: "Ages 35 – 60 Years",
     tagline: "Joint Mobility, Cardiovascular Health & Low-Impact Sports",
-    color: "from-teal-400 to-cyan-500",
-    bgAccent: "rgba(0, 229, 255, 0.08)",
-    borderAccent: "hover:border-[var(--color-gradient-mid)]/50",
+    color: "from-teal-600 to-cyan-600",
+    bgAccent: "rgba(13, 148, 136, 0.06)",
+    borderAccent: "hover:border-teal-500/50",
     features: [
       "Joint preservation routines & progressive functional mobility",
       "Low-impact sports leagues (Pickleball, Masters Swimming, Badminton)",
@@ -53,8 +53,8 @@ const demographyPrograms = [
     title: "Seniors & Golden Age Community",
     ageRange: "Ages 60+ Years",
     tagline: "Dynamic Balance Restoration, Fall Prevention & Social Sports",
-    color: "from-rose-400 to-pink-500",
-    bgAccent: "rgba(244, 63, 94, 0.08)",
+    color: "from-rose-600 to-pink-600",
+    bgAccent: "rgba(225, 29, 72, 0.06)",
     borderAccent: "hover:border-rose-500/50",
     features: [
       "Dynamic equilibrium & vestibular balance for fall prevention",
@@ -74,76 +74,76 @@ const lifecycleSteps = [
   {
     icon: "📋",
     title: "Provide Materials & Structure",
-    desc: "Complete guidelines and materials for consistent delivery.",
+    desc: "Lesson plans, equipment recommendations, evaluation rubrics.",
   },
   {
-    icon: "👨‍🏫",
-    title: "Train the Trainers",
-    desc: "Empowering coaches on the ground with structured methodologies.",
+    icon: "🎓",
+    title: "Train & Support the Trainers",
+    desc: "Direct coach development and continuous pedagogical guidance.",
   },
   {
-    icon: "🏢",
-    title: "Implement Through Partners",
-    desc: "Turnkey delivery across schools, clubs, centres and communities.",
+    icon: "🤝",
+    title: "Implement with Partners",
+    desc: "Turnkey delivery directly inside partner schools and venues.",
   },
   {
     icon: "📊",
-    title: "Evaluate Results",
-    desc: "Measuring actual physical development, not just attendance.",
+    title: "Evaluate & Learn",
+    desc: "Objective physical testing, benchmark tracking, and progress metrics.",
   },
   {
     icon: "🔄",
     title: "Continuously Refine",
-    desc: "Programs evolve with real-world outcomes and ongoing feedback.",
+    desc: "Data-driven curriculum evolution every single term.",
   },
 ];
 
 export default function About() {
   return (
     <RevealWrapper>
-      <section id="about" className="section-padding relative overflow-hidden">
+      <section id="about" className="section-padding relative overflow-hidden bg-white">
         {/* Ambient Glow Accents */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[var(--color-primary)]/4 blur-[140px] pointer-events-none" />
-        <div className="absolute bottom-10 left-0 w-[450px] h-[450px] rounded-full bg-[var(--color-gradient-end)]/4 blur-[130px] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[var(--color-primary)]/5 blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-10 left-0 w-[450px] h-[450px] rounded-full bg-[var(--color-gradient-end)]/5 blur-[130px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto relative z-10 space-y-16">
           {/* Main 2-Column Overview (Left: ~70% / 8 cols, Right: ~30% / 4 cols) */}
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
             {/* Left Content Column (70% Width / 8 cols) */}
             <div className="lg:col-span-8 reveal-left space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200">
                 <span className="w-2 h-2 rounded-full bg-[var(--color-primary)] animate-pulse" />
-                <span className="text-xs font-semibold uppercase tracking-[0.15em] text-[var(--color-primary)]">
+                <span className="text-xs font-bold uppercase tracking-[0.15em] text-[var(--color-primary)]">
                   Who We Are
                 </span>
               </div>
 
-              <h2 className="font-[var(--font-heading)] text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.15] text-white">
+              <h2 className="font-[var(--font-heading)] text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-[1.15] text-slate-900">
                 We Design the <span className="gradient-text">System.</span>
                 <br />
                 Partners Deliver the <span className="gradient-text">Experience.</span>
               </h2>
 
-              <div className="space-y-4 text-sm sm:text-base text-[var(--color-text-secondary)] leading-relaxed">
+              <div className="space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed">
                 <p>
-                  <strong className="text-white">Lilhawkers Sports Management Pvt. Ltd.</strong> is a private company incorporated in 2019 as a sports management company. We identify ourselves as a sports-program development and delivery company. We are not a sports academy in the traditional sense — we design structured, age-appropriate sports development systems and implement them through the schools, clubs, training centres and residential communities we partner with.
+                  <strong className="text-slate-900">Lilhawkers Sports Management Pvt. Ltd.</strong> is a private company incorporated in 2019 as a sports management company. We identify ourselves as a sports-program development and delivery company. We are not a sports academy in the traditional sense — we design structured, age-appropriate sports development systems and implement them through the schools, clubs, training centres and residential communities we partner with.
                 </p>
                 <p>
-                  Most organisations that want to offer sport face the same gap: they have the space, the interest and the participants, but not a structured, progressive curriculum tailored appropriately for each stage of growth — from young children taking their first athletic steps to Professionals & Young Adults and than middle-aged adults to senior community members. Handing participants a ball and asking them to “just play” doesn’t build lasting athletic ability or lifelong fitness habits systematically.
+                  Most organisations that want to offer sport face the same gap: they have the space, the interest and the participants, but not a structured, progressive curriculum tailored appropriately for each stage of growth — from young children taking their first athletic steps to Professionals &amp; Young Adults and middle-aged adults to senior community members. Handing participants a ball and asking them to “just play” doesn’t build lasting athletic ability or lifelong fitness habits systematically.
                 </p>
-                <p className="text-white font-medium bg-white/[0.02] p-4 rounded-xl border border-white/5">
+                <p className="text-slate-900 font-medium bg-emerald-50/70 p-4 rounded-2xl border border-emerald-100/80">
                   Lilhawkers closes that gap. We design age-specific and gender-inclusive programs, provide materials and structure, train and support the trainers who deliver it, implement it through our partner organisations, evaluate the results, and continuously refine the program based on what we learn — so participation keeps growing and development keeps improving.
                 </p>
               </div>
 
-              {/* 3 Demographic Programs Overview Cards within Left Column */}
+              {/* 4 Demographic Programs Overview Cards within Left Column */}
               <div className="pt-4 space-y-4">
-                <div className="flex items-center justify-between pb-2 border-b border-white/5">
-                  <h3 className="text-sm font-bold uppercase tracking-wider text-white">
+                <div className="flex items-center justify-between pb-2 border-b border-slate-200">
+                  <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900">
                     Structured Development Spectrum
                   </h3>
-                  <span className="text-xs text-[var(--color-primary)] font-medium">
-                    All Generations & Genders
+                  <span className="text-xs text-[var(--color-primary)] font-semibold">
+                    All Generations &amp; Genders
                   </span>
                 </div>
 
@@ -151,33 +151,33 @@ export default function About() {
                   {demographyPrograms.map((prog) => (
                     <div
                       key={prog.title}
-                      className="glass-card p-5 rounded-2xl border border-white/10 flex flex-col justify-between hover:border-[var(--color-primary)]/40 transition-all duration-300 group"
+                      className="glass-card p-5 rounded-2xl border border-slate-200 flex flex-col justify-between hover:border-[var(--color-primary)]/40 transition-all duration-300 group"
                       style={{
-                        background: `radial-gradient(ellipse at 50% 0%, ${prog.bgAccent}, transparent 70%), rgba(17, 17, 17, 0.7)`,
+                        background: `radial-gradient(ellipse at 50% 0%, ${prog.bgAccent}, transparent 70%), #ffffff`,
                       }}
                     >
                       <div>
                         <div className="flex items-center justify-between mb-2.5">
-                          <div className="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-base group-hover:scale-110 transition-transform">
+                          <div className="w-8 h-8 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-base group-hover:scale-110 transition-transform">
                             {prog.icon}
                           </div>
-                          <span className="px-2 py-0.5 rounded-full text-[9px] font-semibold bg-white/5 text-white/80 border border-white/10">
+                          <span className="px-2 py-0.5 rounded-full text-[9px] font-bold bg-slate-100 text-slate-700 border border-slate-200">
                             {prog.ageRange}
                           </span>
                         </div>
 
-                        <h4 className="text-xs sm:text-sm font-bold text-white font-[var(--font-heading)] mb-1 group-hover:text-[var(--color-primary)] transition-colors leading-snug">
+                        <h4 className="text-xs sm:text-sm font-bold text-slate-900 font-[var(--font-heading)] mb-1 group-hover:text-[var(--color-primary)] transition-colors leading-snug">
                           {prog.title}
                         </h4>
-                        <p className="text-[10px] text-[var(--color-text-secondary)] mb-2.5 leading-tight font-medium">
+                        <p className="text-[10px] text-slate-500 mb-2.5 leading-tight font-medium">
                           {prog.tagline}
                         </p>
 
-                        <ul className="space-y-1 text-[10px] text-[var(--color-text-secondary)]">
+                        <ul className="space-y-1 text-[10px] text-slate-600">
                           {prog.features.slice(0, 3).map((feat, fIdx) => (
                             <li key={fIdx} className="flex items-start gap-1.5">
-                              <span className="w-1 h-1 rounded-full bg-[var(--color-primary)] shrink-0 mt-1.5" />
-                              <span className="leading-tight group-hover:text-white/90 transition-colors">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] shrink-0 mt-1" />
+                              <span className="leading-tight group-hover:text-slate-900 transition-colors">
                                 {feat}
                               </span>
                             </li>
@@ -193,36 +193,33 @@ export default function About() {
             {/* Right Column: Turnkey Lifecycle & MCA Info (30% Width / 4 cols) */}
             <div className="lg:col-span-4 reveal-right space-y-6">
               {/* 6-Step Turnkey Delivery System */}
-              <div className="glass-card rounded-2xl p-5 sm:p-6 border border-white/10 relative overflow-hidden">
-                <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-white/10">
-                  <h3 className="font-[var(--font-heading)] text-base font-bold text-white">
+              <div className="glass-card rounded-2xl p-5 sm:p-6 border border-slate-200 relative overflow-hidden">
+                <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-100">
+                  <h3 className="font-[var(--font-heading)] text-base font-bold text-slate-900">
                     Delivery System
                   </h3>
-                  <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-[var(--color-primary)]/15 text-[var(--color-primary)] border border-[var(--color-primary)]/30 font-medium">
-                    Turnkey
+                  <span className="text-[9px] font-mono text-[var(--color-primary)] bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full font-bold">
+                    Turnkey Operating Model
                   </span>
                 </div>
 
                 <div className="space-y-3">
-                  {lifecycleSteps.map((item, idx) => (
-                    <div
-                      key={item.title}
-                      className="p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-[var(--color-primary)]/40 hover:bg-white/[0.04] transition-all group flex items-start gap-3"
-                    >
-                      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[var(--color-primary)]/15 to-[var(--color-gradient-end)]/15 flex items-center justify-center text-sm shrink-0 group-hover:scale-110 transition-transform">
-                        {item.icon}
+                  {lifecycleSteps.map((step, idx) => (
+                    <div key={step.title} className="flex items-start gap-3 group">
+                      <div className="w-7 h-7 rounded-lg bg-emerald-50 border border-emerald-100 flex items-center justify-center text-xs shrink-0 group-hover:scale-110 transition-transform">
+                        {step.icon}
                       </div>
-                      <div>
+                      <div className="min-w-0 flex-1">
                         <div className="flex items-center gap-1.5">
-                          <span className="text-[9px] font-mono font-bold text-[var(--color-primary)]/70 uppercase">
-                            0{idx + 1}
+                          <span className="text-[10px] font-mono text-[var(--color-primary)] font-bold">
+                            0{idx + 1}.
                           </span>
-                          <h4 className="text-xs font-semibold text-white group-hover:text-[var(--color-primary)] transition-colors">
-                            {item.title}
+                          <h4 className="text-xs font-bold text-slate-900 group-hover:text-[var(--color-primary)] transition-colors leading-tight">
+                            {step.title}
                           </h4>
                         </div>
-                        <p className="text-[11px] text-[var(--color-text-secondary)] leading-relaxed mt-0.5">
-                          {item.desc}
+                        <p className="text-[11px] text-slate-500 leading-snug mt-0.5">
+                          {step.desc}
                         </p>
                       </div>
                     </div>
@@ -231,53 +228,62 @@ export default function About() {
               </div>
 
               {/* Verified MCA Company Information Card */}
-              <div className="glass-card p-5 sm:p-6 rounded-2xl border border-white/10 relative overflow-hidden shadow-xl">
-                <div className="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
+              <div className="glass-card rounded-2xl p-5 sm:p-6 border border-slate-200 relative overflow-hidden">
+                <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-[var(--color-primary)] animate-pulse" />
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-white font-[var(--font-heading)]">
-                      Company Info
-                    </h4>
+                    <h3 className="font-[var(--font-heading)] text-sm font-bold uppercase tracking-wider text-slate-900">
+                      Company Information
+                    </h3>
                   </div>
-                  <span className="text-[9px] font-mono text-emerald-400 bg-emerald-400/10 border border-emerald-400/20 px-2 py-0.5 rounded-full font-semibold">
-                    MCA Verified
+                  <span className="text-[9px] font-mono text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full font-bold">
+                    MCA Verified • Active
                   </span>
                 </div>
 
-                <dl className="space-y-3 text-xs">
-                  <div className="pb-2 border-b border-white/5">
-                    <dt className="text-[10px] uppercase tracking-wider text-[var(--color-text-secondary)] font-semibold">
+                <dl className="grid grid-cols-2 gap-3 text-xs">
+                  <div className="col-span-2 pb-2 border-b border-slate-100">
+                    <dt className="text-[10px] uppercase tracking-wider text-slate-500 font-semibold">
                       Legal Name
                     </dt>
-                    <dd className="text-white font-semibold text-[11px] mt-0.5">
+                    <dd className="text-slate-900 font-bold text-xs mt-0.5">
                       LILHAWKERS SPORTS MANAGEMENT PVT. LTD.
                     </dd>
                   </div>
 
-                  <div className="pb-2 border-b border-white/5">
-                    <dt className="text-[10px] uppercase tracking-wider text-[var(--color-text-secondary)] font-semibold">
-                      Corporate Identification No. (CIN)
+                  <div className="pb-2 border-b border-slate-100">
+                    <dt className="text-[10px] uppercase tracking-wider text-slate-500 font-semibold">
+                      CIN
                     </dt>
                     <dd className="font-mono text-[var(--color-primary)] font-bold text-[11px] mt-0.5">
                       U92419HR2019PTC083938
                     </dd>
                   </div>
 
-                  <div className="pb-2 border-b border-white/5">
-                    <dt className="text-[10px] uppercase tracking-wider text-[var(--color-text-secondary)] font-semibold">
-                      Registration & Incorporation
+                  <div className="pb-2 border-b border-slate-100">
+                    <dt className="text-[10px] uppercase tracking-wider text-slate-500 font-semibold">
+                      Registration No.
                     </dt>
-                    <dd className="text-white font-medium text-[11px] mt-0.5">
-                      Reg: 83938 • 03 December 2019
+                    <dd className="text-slate-900 font-mono font-medium text-xs mt-0.5">
+                      83938
                     </dd>
                   </div>
 
                   <div>
-                    <dt className="text-[10px] uppercase tracking-wider text-[var(--color-text-secondary)] font-semibold">
-                      Category / Class
+                    <dt className="text-[10px] uppercase tracking-wider text-slate-500 font-semibold">
+                      Incorporation Date
                     </dt>
-                    <dd className="text-white font-medium text-[11px] mt-0.5">
-                      Private Limited Company • Non-govt
+                    <dd className="text-slate-900 font-medium text-xs mt-0.5">
+                      03 December 2019
+                    </dd>
+                  </div>
+
+                  <div>
+                    <dt className="text-[10px] uppercase tracking-wider text-slate-500 font-semibold">
+                      Company Category
+                    </dt>
+                    <dd className="text-slate-900 font-medium text-xs mt-0.5">
+                      Private Limited
                     </dd>
                   </div>
                 </dl>

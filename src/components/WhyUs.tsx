@@ -40,44 +40,38 @@ export default function WhyUs() {
     <RevealWrapper>
       <section
         id="why-us"
-        className="section-padding relative overflow-hidden"
-        style={{
-          background: `
-            radial-gradient(ellipse at 50% 100%, rgba(0, 200, 83, 0.06) 0%, transparent 60%),
-            var(--color-dark)
-          `,
-        }}
+        className="section-padding relative overflow-hidden bg-white border-t border-slate-200/80"
       >
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Section Header */}
           <div className="text-center mb-10 reveal">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-gradient-end)]" />
-              <span className="text-xs font-medium uppercase tracking-[0.15em] text-[var(--color-text-secondary)]">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)]" />
+              <span className="text-xs font-bold uppercase tracking-[0.15em] text-[var(--color-primary)]">
                 Why Choose Us
               </span>
             </div>
-            <h2 className="font-[var(--font-heading)] text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-3">
+            <h2 className="font-[var(--font-heading)] text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-3 text-slate-900">
               Why Organisations Choose{" "}
               <span className="gradient-text">Lilhawkers</span>
             </h2>
           </div>
 
           {/* Reasons Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {reasons.map((reason, i) => (
               <div
                 key={reason.title}
-                className="reveal glass-card rounded-xl p-7 group"
+                className="reveal glass-card rounded-2xl p-7 group border border-slate-200 bg-slate-50/50 hover:bg-white hover:shadow-xl hover:border-[var(--color-primary)]/40 transition-all duration-300"
                 style={{ transitionDelay: `${i * 0.1}s` }}
               >
-                <div className="text-3xl mb-4 group-hover:scale-110 transition-transform inline-block">
+                <div className="w-12 h-12 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform shadow-xs">
                   {reason.icon}
                 </div>
-                <h3 className="font-[var(--font-heading)] text-lg font-semibold text-white mb-3 group-hover:text-[var(--color-primary)] transition-colors">
+                <h3 className="font-[var(--font-heading)] text-lg font-bold text-slate-900 mb-2 group-hover:text-[var(--color-primary)] transition-colors">
                   {reason.title}
                 </h3>
-                <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
+                <p className="text-sm text-slate-600 leading-relaxed">
                   {reason.desc}
                 </p>
               </div>

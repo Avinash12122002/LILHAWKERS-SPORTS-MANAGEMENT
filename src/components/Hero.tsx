@@ -27,13 +27,13 @@ export default function Hero() {
     <section
       ref={heroRef}
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden noise-overlay"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{
         background: `
-          radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 30%), rgba(0, 200, 83, 0.12) 0%, transparent 50%),
-          radial-gradient(circle at 80% 20%, rgba(0, 229, 255, 0.08) 0%, transparent 40%),
-          radial-gradient(circle at 20% 80%, rgba(0, 200, 83, 0.06) 0%, transparent 40%),
-          var(--color-dark)
+          radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 30%), rgba(5, 150, 105, 0.08) 0%, transparent 55%),
+          radial-gradient(circle at 80% 20%, rgba(2, 132, 199, 0.06) 0%, transparent 45%),
+          radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 45%),
+          #f8fafc
         `,
       }}
     >

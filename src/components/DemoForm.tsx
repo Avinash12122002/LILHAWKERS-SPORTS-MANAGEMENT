@@ -3,21 +3,20 @@
 import { useState } from "react";
 import RevealWrapper from "./RevealWrapper";
 
+const ageGroups = [
+  "Foundation (3-6 yrs)",
+  "Exposure (7-9 yrs)",
+  "Skill Development (10-12 yrs)",
+  "Sport-Specific (13-16 yrs)",
+  "Competitive & Beyond (17+ yrs)",
+];
+
 const orgTypes = [
   "Private School",
   "Sports Club",
   "Sports Training Centre",
   "Community Organisation",
   "Other",
-];
-
-const ageGroups = [
-  "Early Childhood (3–6 yrs)",
-  "Primary / Youth (7–12 yrs)",
-  "Teens / Competitive (13–20 yrs)",
-  "Working Professionals (20–35 yrs)",
-  "Adults & Longevity (35–60 yrs)",
-  "Seniors & Golden Age (60+ yrs)",
 ];
 
 export default function DemoForm() {
@@ -33,10 +32,10 @@ export default function DemoForm() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [submissionId, setSubmissionId] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [ageGroupError, setAgeGroupError] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
-  const [submissionId, setSubmissionId] = useState<string | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -45,17 +44,17 @@ export default function DemoForm() {
   ) => {
     const { name, value } = e.target;
 
-    // Phone: only allow digits, +, spaces, and hyphens
-    if (name === "phone") {
-      const cleaned = value.replace(/[^0-9+\-\s]/g, "");
-      setFormData((prev) => ({ ...prev, [name]: cleaned }));
+    // Contact name: only allow letters, spaces, and dots
+    if (name === "contactName") {
+      const filtered = value.replace(/[^a-zA-Z\s.]/g, "");
+      setFormData((prev) => ({ ...prev, [name]: filtered }));
       return;
     }
 
-    // Contact name: only allow letters, spaces, and dots
-    if (name === "contactName") {
-      const cleaned = value.replace(/[^a-zA-Z\s.]/g, "");
-      setFormData((prev) => ({ ...prev, [name]: cleaned }));
+    // Phone: only allow digits, spaces, hyphens, and leading +
+    if (name === "phone") {
+      const filtered = value.replace(/[^0-9+\s-]/g, "");
+      setFormData((prev) => ({ ...prev, [name]: filtered }));
       return;
     }
 
@@ -64,23 +63,27 @@ export default function DemoForm() {
 
   const handleAgeGroup = (group: string) => {
     setAgeGroupError(false);
-    setFormData((prev) => ({
-      ...prev,
-      ageGroups: prev.ageGroups.includes(group)
-        ? prev.ageGroups.filter((g) => g !== group)
-        : [...prev.ageGroups, group],
-    }));
+    setFormData((prev) => {
+      const exists = prev.ageGroups.includes(group);
+      return {
+        ...prev,
+        ageGroups: exists
+          ? prev.ageGroups.filter((g) => g !== group)
+          : [...prev.ageGroups, group],
+      };
+    });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setServerError(null);
 
+    // Validate at least one age group is selected
     if (formData.ageGroups.length === 0) {
       setAgeGroupError(true);
       return;
     }
-    setAgeGroupError(false);
+
     setIsSubmitting(true);
 
     try {
@@ -113,10 +116,10 @@ export default function DemoForm() {
 
   if (submitted) {
     return (
-      <section id="demo" className="section-padding relative overflow-hidden">
+      <section id="demo" className="section-padding relative overflow-hidden bg-slate-50/80">
         <div className="max-w-2xl mx-auto text-center">
-          <div className="glass-card rounded-2xl p-12">
-            <div className="w-20 h-20 rounded-full bg-[var(--color-primary)]/20 flex items-center justify-center mx-auto mb-6">
+          <div className="glass-card rounded-3xl p-8 sm:p-12 border border-slate-200 bg-white shadow-xl">
+            <div className="w-20 h-20 rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center mx-auto mb-6 shadow-xs">
               <svg
                 className="w-10 h-10 text-[var(--color-primary)]"
                 fill="none"
@@ -126,20 +129,20 @@ export default function DemoForm() {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth={2}
+                  strokeWidth={2.5}
                   d="M5 13l4 4L19 7"
                 />
               </svg>
             </div>
-            <h3 className="font-[var(--font-heading)] text-2xl font-bold text-white mb-3">
+            <h3 className="font-[var(--font-heading)] text-2xl font-extrabold text-slate-900 mb-3">
               Demo Request Submitted!
             </h3>
             {submissionId && (
-              <div className="inline-block px-3 py-1 rounded-md bg-white/5 border border-white/10 text-xs font-mono text-[var(--color-primary)] mb-4">
-                Reference ID: {submissionId}
+              <div className="inline-block px-3.5 py-1.5 rounded-lg bg-emerald-50 border border-emerald-200 text-xs font-mono font-bold text-[var(--color-primary)] mb-4">
+                Reference ID: {submissionId.replace(/^(DEMO-|LH-)/, "")}
               </div>
             )}
-            <p className="text-[var(--color-text-secondary)] mb-6 leading-relaxed">
+            <p className="text-slate-600 mb-6 leading-relaxed text-sm">
               Thank you for your interest. Our team will reach out to you within
               24 hours to schedule your free demo session.
             </p>
@@ -172,33 +175,26 @@ export default function DemoForm() {
     <RevealWrapper>
       <section
         id="demo"
-        className="section-padding relative overflow-hidden"
-        style={{
-          background: `
-            radial-gradient(ellipse at 30% 0%, rgba(0, 200, 83, 0.08) 0%, transparent 50%),
-            radial-gradient(ellipse at 70% 100%, rgba(0, 229, 255, 0.06) 0%, transparent 50%),
-            var(--color-dark)
-          `,
-        }}
+        className="section-padding relative overflow-hidden bg-slate-50/70 border-t border-slate-200/80"
       >
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             {/* Left - Info */}
             <div className="reveal-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass mb-6">
-                <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)]" />
-                <span className="text-xs font-medium uppercase tracking-[0.15em] text-[var(--color-text-secondary)]">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 mb-6">
+                <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] animate-pulse" />
+                <span className="text-xs font-bold uppercase tracking-[0.15em] text-[var(--color-primary)]">
                   See It For Yourself
                 </span>
               </div>
 
-              <h2 className="font-[var(--font-heading)] text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-6">
+              <h2 className="font-[var(--font-heading)] text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-6 text-slate-900">
                 Book a{" "}
                 <span className="gradient-text">Free Demo</span>{" "}
                 Session
               </h2>
 
-              <p className="text-[var(--color-text-secondary)] leading-relaxed mb-8">
+              <p className="text-slate-600 leading-relaxed mb-8 text-base">
                 The best way to understand a Lilhawkers program is to see it in
                 action. We conduct free demonstration sessions for schools,
                 clubs, training centres and community organisations — showing
@@ -215,8 +211,8 @@ export default function DemoForm() {
                   "See how we measure results",
                   "No obligation — just a clear look at what structured sports development looks like",
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <div className="w-5 h-5 rounded-full bg-[var(--color-primary)]/20 flex items-center justify-center shrink-0">
+                  <div key={i} className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center shrink-0 mt-0.5">
                       <svg
                         className="w-3 h-3 text-[var(--color-primary)]"
                         fill="none"
@@ -231,15 +227,13 @@ export default function DemoForm() {
                         />
                       </svg>
                     </div>
-                    <span className="text-sm text-[var(--color-text-secondary)]">
-                      {item}
-                    </span>
+                    <span className="text-sm font-medium text-slate-700">{item}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="glass-card rounded-xl p-6">
-                <p className="text-sm text-[var(--color-text-secondary)] italic">
+              <div className="glass-card rounded-2xl p-6 border border-slate-200 bg-white shadow-xs">
+                <p className="text-sm text-slate-600 italic">
                   &ldquo;There&apos;s no obligation — just a clear look at what
                   structured sports development actually looks like, delivered
                   for your organisation.&rdquo;
@@ -251,18 +245,18 @@ export default function DemoForm() {
             <div className="reveal-right">
               <form
                 onSubmit={handleSubmit}
-                className="glass-card rounded-2xl p-6 sm:p-8 space-y-5"
+                className="glass-card rounded-3xl p-6 sm:p-9 space-y-5 border border-slate-200 bg-white shadow-xl"
               >
-                <h3 className="font-[var(--font-heading)] text-xl font-semibold text-white mb-2">
+                <h3 className="font-[var(--font-heading)] text-xl font-bold text-slate-900 mb-2">
                   Demo Request Form
                 </h3>
 
                 {serverError && (
-                  <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 text-xs flex items-start gap-2">
+                  <div className="p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs flex items-start gap-2">
                     <svg className="w-4 h-4 shrink-0 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
                     </svg>
-                    <span>{serverError}</span>
+                    <span className="font-medium">{serverError}</span>
                   </div>
                 )}
 
@@ -270,7 +264,7 @@ export default function DemoForm() {
                   <label
                     htmlFor="organisationName"
                     id="organisationName-label"
-                    className="block text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-wider mb-2"
+                    className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2"
                   >
                     Organisation Name *
                   </label>
@@ -292,7 +286,7 @@ export default function DemoForm() {
                   <label
                     htmlFor="organisationType"
                     id="organisationType-label"
-                    className="block text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-wider mb-2"
+                    className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2"
                   >
                     Organisation Type *
                   </label>
@@ -305,13 +299,13 @@ export default function DemoForm() {
                     value={formData.organisationType}
                     onChange={handleChange}
                     required
-                    className="form-input appearance-none cursor-pointer"
+                    className="form-input appearance-none cursor-pointer bg-white text-slate-900"
                   >
                     <option value="" disabled>
                       Select type
                     </option>
                     {orgTypes.map((type) => (
-                      <option key={type} value={type} className="bg-[var(--color-dark)]">
+                      <option key={type} value={type} className="bg-white text-slate-900">
                         {type}
                       </option>
                     ))}
@@ -323,7 +317,7 @@ export default function DemoForm() {
                     <label
                       htmlFor="contactName"
                       id="contactName-label"
-                      className="block text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-wider mb-2"
+                      className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2"
                     >
                       Contact Person *
                     </label>
@@ -346,7 +340,7 @@ export default function DemoForm() {
                     <label
                       htmlFor="phone"
                       id="phone-label"
-                      className="block text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-wider mb-2"
+                      className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2"
                     >
                       Phone Number *
                     </label>
@@ -373,7 +367,7 @@ export default function DemoForm() {
                   <label
                     htmlFor="email"
                     id="email-label"
-                    className="block text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-wider mb-2"
+                    className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2"
                   >
                     Email Address *
                   </label>
@@ -394,23 +388,23 @@ export default function DemoForm() {
                 <div role="group" aria-labelledby="age-groups-label">
                   <label
                     id="age-groups-label"
-                    className="block text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-wider mb-2"
+                    className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2"
                   >
                     Age Group(s) of Interest *
                   </label>
-                  <div className="flex flex-wrap gap-3">
+                  <div className="flex flex-wrap gap-2.5">
                     {ageGroups.map((group) => (
                       <button
                         key={group}
                         type="button"
                         aria-pressed={formData.ageGroups.includes(group)}
                         onClick={() => handleAgeGroup(group)}
-                        className={`px-4 py-2 rounded-lg text-sm font-medium border transition-all duration-300 cursor-pointer ${
+                        className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold border transition-all duration-200 cursor-pointer ${
                           formData.ageGroups.includes(group)
-                            ? "bg-[var(--color-primary)]/20 border-[var(--color-primary)] text-[var(--color-primary)] shadow-sm shadow-[var(--color-primary)]/20"
+                            ? "bg-emerald-50 border-emerald-600 text-emerald-800 shadow-xs ring-1 ring-emerald-600/30"
                             : ageGroupError
-                            ? "bg-red-500/10 border-red-500/40 text-[var(--color-text-secondary)] hover:border-red-500"
-                            : "bg-transparent border-white/10 text-[var(--color-text-secondary)] hover:border-white/30"
+                            ? "bg-red-50 border-red-300 text-slate-600 hover:border-red-500"
+                            : "bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100 hover:border-slate-300"
                         }`}
                       >
                         {group}
@@ -418,7 +412,7 @@ export default function DemoForm() {
                     ))}
                   </div>
                   {ageGroupError && (
-                    <p className="text-xs text-red-400 mt-2 flex items-center gap-1.5" role="alert">
+                    <p className="text-xs text-red-600 mt-2 flex items-center gap-1.5 font-medium" role="alert">
                       <svg className="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
                       </svg>
@@ -431,7 +425,7 @@ export default function DemoForm() {
                   <label
                     htmlFor="location"
                     id="location-label"
-                    className="block text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-wider mb-2"
+                    className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2"
                   >
                     Preferred Location / City *
                   </label>
@@ -445,7 +439,7 @@ export default function DemoForm() {
                     onChange={handleChange}
                     required
                     className="form-input"
-                    placeholder="City name"
+                    placeholder="City name (e.g. Delhi, Gurugram, Rohtak)"
                   />
                 </div>
 
@@ -453,10 +447,10 @@ export default function DemoForm() {
                   <label
                     htmlFor="message"
                     id="message-label"
-                    className="block text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-wider mb-2"
+                    className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2"
                   >
                     Message{" "}
-                    <span className="text-[var(--color-text-secondary)]/60 normal-case tracking-normal">
+                    <span className="text-slate-400 font-normal normal-case tracking-normal">
                       (optional)
                     </span>
                   </label>
@@ -468,14 +462,14 @@ export default function DemoForm() {
                     onChange={handleChange}
                     rows={3}
                     className="form-input resize-none"
-                    placeholder="Tell us about your goals..."
+                    placeholder="Tell us about your campus, facility, or student count..."
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="btn-primary w-full justify-center text-base py-4 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="btn-primary w-full justify-center text-base py-4 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-emerald-600/25"
                 >
                   <span className="flex items-center gap-2">
                     {isSubmitting ? (
