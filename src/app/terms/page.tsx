@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PartnerShowcaseMarquee from "@/components/PartnerShowcaseMarquee";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions | Lilhawkers Sports Management",
@@ -57,6 +58,11 @@ export default function TermsPage() {
             Lilhawkers Sports Management Private Limited • CIN: U92419HR2019PTC083938 • Last Updated: August 2026
           </div>
         </div>
+      </section>
+
+      {/* 22-Card Partner Showcase Marquee */}
+      <section className="py-12 border-t border-white/5 bg-[#080a09] relative overflow-hidden">
+        <PartnerShowcaseMarquee />
       </section>
 
       <Footer />

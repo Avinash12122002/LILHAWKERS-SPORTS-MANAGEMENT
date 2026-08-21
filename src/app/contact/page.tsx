@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import DemoForm from "@/components/DemoForm";
+import PartnerShowcaseMarquee from "@/components/PartnerShowcaseMarquee";
 
 export const metadata: Metadata = {
   title: "Book a Free Demo & Contact Us | Lilhawkers Sports Management",
@@ -116,6 +117,20 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* 22-Card Partner Showcase Marquee */}
+      <section className="py-10 border-y border-white/5 bg-[#080a09] relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4">
+          <span className="text-[10px] font-mono uppercase tracking-widest text-[var(--color-primary)] font-bold block">
+            Institutional Deployments &bull; North India
+          </span>
+          <h3 className="text-xl sm:text-2xl font-bold text-white font-[var(--font-heading)] mt-0.5">
+            Partnered With Top Schools, Clubs &amp; Training Centres
+          </h3>
+        </div>
+
+        <PartnerShowcaseMarquee />
       </section>
 
       {/* Main Full-Width Demo Form Section */}
