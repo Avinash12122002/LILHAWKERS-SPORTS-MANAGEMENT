@@ -1,7 +1,6 @@
-"use client";
-
 import Link from "next/link";
 import RevealWrapper from "./RevealWrapper";
+import PartnerShowcaseMarquee from "./PartnerShowcaseMarquee";
 
 const partners = [
   {
@@ -85,6 +84,26 @@ export default function Partners() {
                 </p>
               </div>
             ))}
+          </div>
+
+          {/* 22-Card Alternating Partner Showcase Marquee */}
+          <div className="my-14">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6 px-1">
+              <div>
+                <span className="text-[10px] font-mono uppercase tracking-widest text-[var(--color-primary)] font-bold block">
+                  Institutional Deployments &bull; North India
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-white font-[var(--font-heading)] mt-0.5">
+                  Trusted Across Schools, Clubs, Training Centres &amp; Communities
+                </h3>
+              </div>
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-zinc-300 w-fit">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                22 Active Partner Showcases
+              </span>
+            </div>
+
+            <PartnerShowcaseMarquee />
           </div>
 
           {/* CTA callout */}
