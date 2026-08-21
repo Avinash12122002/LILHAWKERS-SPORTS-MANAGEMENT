@@ -24,10 +24,11 @@ export default function Footer() {
                 <span>Book a Free Demo Session</span>
               </Link>
               <a
-                href="mailto:info@lilhawkers.com"
-                className="px-5 py-2.5 rounded-full bg-white/5 hover:bg-white/10 text-white text-xs sm:text-sm font-semibold border border-white/10 transition-colors"
+                href="tel:+918168226462"
+                className="px-5 py-2.5 rounded-full bg-white/5 hover:bg-white/10 text-white text-xs sm:text-sm font-semibold border border-white/10 transition-colors inline-flex items-center gap-2"
               >
-                Contact Our Team
+                <span>📞</span>
+                <span>Call +91 81682 26462</span>
               </a>
             </div>
           </div>
@@ -37,8 +38,8 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Main Footer Grid (Clean Proportions) */}
         <div className="py-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-          {/* Brand & Contacts Column (4 cols) */}
-          <div className="md:col-span-4 space-y-4">
+          {/* Brand & Contacts Column (5 cols) */}
+          <div className="md:col-span-5 space-y-4">
             <Link href="/" className="flex items-center gap-3.5 group inline-flex">
               <div className="relative w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-white/[0.05] border border-white/15 p-1.5 flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:border-[var(--color-primary)]/50 shrink-0">
                 <Image
@@ -65,16 +66,24 @@ export default function Footer() {
               Structured Sports Development for Every Stage of Growth. We build the progressive pathway from foundational movement to lifelong active fitness.
             </p>
 
-            <div className="space-y-1.5 text-xs text-[var(--color-text-secondary)] pt-2 border-t border-white/5">
+            <div className="space-y-2 text-xs text-[var(--color-text-secondary)] pt-2 border-t border-white/5">
+              <div className="flex items-center gap-2">
+                <span className="text-[var(--color-primary)] font-bold text-xs">📞</span>
+                <a href="tel:+918168226462" className="text-white hover:text-[var(--color-primary)] transition-colors font-medium">
+                  +91 81682 26462
+                </a>
+              </div>
               <div className="flex items-center gap-2">
                 <span className="text-[var(--color-primary)] font-bold text-xs">✉</span>
                 <a href="mailto:info@lilhawkers.com" className="hover:text-white transition-colors">
                   info@lilhawkers.com
                 </a>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="text-[var(--color-primary)] font-bold text-xs">📍</span>
-                <span>Haryana, India</span>
+              <div className="flex items-start gap-2">
+                <span className="text-[var(--color-primary)] font-bold text-xs mt-0.5">📍</span>
+                <span className="text-zinc-300 leading-snug">
+                  First Floor, Besides Sadar Thana, Delhi Rohtak Corridor, opp. Metro pillar no 830, Bahadurgarh, DELHI NCR 124507
+                </span>
               </div>
             </div>
 
@@ -86,17 +95,17 @@ export default function Footer() {
             </Link>
           </div>
 
-          {/* Navigation Column (3 cols) */}
-          <div className="md:col-span-3">
+          {/* Navigation Column (2 cols) */}
+          <div className="md:col-span-2">
             <h4 className="font-[var(--font-heading)] text-[11px] font-bold text-white uppercase tracking-wider mb-3">
               Navigation
             </h4>
             <ul className="space-y-2 text-xs">
               {[
                 { href: "/about", label: "About Us" },
-                { href: "/programs", label: "Programs & Delivery System" },
-                { href: "/partners", label: "Partners & Why Lilhawkers" },
-                { href: "/contact", label: "Book a Demo Session" },
+                { href: "/programs", label: "Programs & System" },
+                { href: "/partners", label: "Partners & Why Us" },
+                { href: "/contact", label: "Book Free Demo" },
               ].map((link) => (
                 <li key={link.label}>
                   <Link
