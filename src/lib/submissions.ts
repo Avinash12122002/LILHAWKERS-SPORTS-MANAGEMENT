@@ -111,8 +111,15 @@ export async function getAllSubmissions(): Promise<{ submissions: DemoSubmission
   return { submissions: normalized, source: "file" };
 }
 
+function getIdCandidates(id: string): string[] {
+  const clean = id.trim();
+  const stripped = clean.replace(/^(DEMO-|LH-)/, "");
+  return Array.from(new Set([clean, stripped, `DEMO-${stripped}`, `LH-${stripped}`]));
+}
+
 // Update a demo submission
 export async function updateSubmission(id: string, updates: Partial<DemoSubmission>): Promise<{ success: boolean; updated?: DemoSubmission }> {
+  const candidates = getIdCandidates(id);
   const mongoPromise = getMongoClientPromise();
 
   if (mongoPromise) {
@@ -121,7 +128,7 @@ export async function updateSubmission(id: string, updates: Partial<DemoSubmissi
       const db = client.db(DB_NAME);
       const collection = db.collection<DemoSubmission>(COLLECTION_NAME);
       const result = await collection.findOneAndUpdate(
-        { id },
+        { id: { $in: candidates } },
         { $set: updates },
         { returnDocument: "after" }
       );
@@ -135,7 +142,7 @@ export async function updateSubmission(id: string, updates: Partial<DemoSubmissi
 
   // File fallback update
   const list = await ensureFileStore();
-  const index = list.findIndex((item) => item.id === id);
+  const index = list.findIndex((item) => candidates.includes(item.id) || candidates.includes(item.id.replace(/^(DEMO-|LH-)/, "")));
   if (index !== -1) {
     list[index] = { ...list[index], ...updates };
     await fs.writeFile(DATA_FILE, JSON.stringify(list, null, 2), "utf-8");
@@ -147,6 +154,7 @@ export async function updateSubmission(id: string, updates: Partial<DemoSubmissi
 
 // Delete a demo submission
 export async function deleteSubmission(id: string): Promise<{ success: boolean }> {
+  const candidates = getIdCandidates(id);
   const mongoPromise = getMongoClientPromise();
 
   if (mongoPromise) {
@@ -154,7 +162,7 @@ export async function deleteSubmission(id: string): Promise<{ success: boolean }
       const client = await mongoPromise;
       const db = client.db(DB_NAME);
       const collection = db.collection<DemoSubmission>(COLLECTION_NAME);
-      const result = await collection.deleteOne({ id });
+      const result = await collection.deleteOne({ id: { $in: candidates } });
       if (result.deletedCount > 0) {
         return { success: true };
       }
@@ -165,8 +173,9 @@ export async function deleteSubmission(id: string): Promise<{ success: boolean }
 
   // File fallback delete
   const list = await ensureFileStore();
-  const filtered = list.filter((item) => item.id !== id);
-  if (filtered.length !== list.length) {
+  const initialLength = list.length;
+  const filtered = list.filter((item) => !candidates.includes(item.id) && !candidates.includes(item.id.replace(/^(DEMO-|LH-)/, "")));
+  if (filtered.length !== initialLength) {
     await fs.writeFile(DATA_FILE, JSON.stringify(filtered, null, 2), "utf-8");
     return { success: true };
   }

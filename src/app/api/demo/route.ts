@@ -201,22 +201,31 @@ export async function DELETE(request: Request) {
 
     if (!isAuthorized) {
       return NextResponse.json(
-        { success: false, error: "Unauthorized" },
+        { success: false, error: "Unauthorized: Admin access required" },
         { status: 401 }
       );
     }
 
-    const body = await request.json();
-    const { id } = body;
+    const { searchParams } = new URL(request.url);
+    let id = searchParams.get("id");
 
-    if (!id || typeof id !== "string") {
+    if (!id) {
+      try {
+        const body = await request.json();
+        id = body?.id;
+      } catch {
+        // Body was not provided or not JSON
+      }
+    }
+
+    if (!id || typeof id !== "string" || !id.trim()) {
       return NextResponse.json(
         { success: false, error: "Submission ID is required for deletion" },
         { status: 400 }
       );
     }
 
-    const result = await deleteSubmission(id);
+    const result = await deleteSubmission(id.trim());
 
     if (!result.success) {
       return NextResponse.json(
