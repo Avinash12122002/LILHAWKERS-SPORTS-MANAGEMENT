@@ -76,9 +76,9 @@ export async function POST(request: Request) {
       );
     }
 
-    // Build record (Pure Reference ID without any prefix)
+    // Build record (Compact Reference ID)
     const newSubmission: DemoSubmission = {
-      id: `${Date.now()}-${Math.random().toString(36).substring(2, 7).toUpperCase()}`,
+      id: `${Date.now().toString(36).slice(-4).toUpperCase()}-${Math.random().toString(36).substring(2, 6).toUpperCase()}`,
       createdAt: new Date().toISOString(),
       organisationName: organisationName.trim(),
       organisationType: organisationType.trim(),

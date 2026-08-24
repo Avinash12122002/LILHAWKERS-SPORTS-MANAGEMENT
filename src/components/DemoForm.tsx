@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import RevealWrapper from "./RevealWrapper";
+import { formatRefId } from "@/lib/format";
 
 const ageGroups = [
   "Foundation (3-6 yrs)",
@@ -139,7 +140,7 @@ export default function DemoForm() {
             </h3>
             {submissionId && (
               <div className="inline-block px-3.5 py-1.5 rounded-lg bg-emerald-50 border border-emerald-200 text-xs font-mono font-bold text-[var(--color-primary)] mb-4">
-                Reference ID: {submissionId.replace(/^(DEMO-|LH-)/, "")}
+                Reference ID: {formatRefId(submissionId)}
               </div>
             )}
             <p className="text-slate-600 mb-6 leading-relaxed text-sm">

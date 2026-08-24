@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { DemoSubmission, SubmissionStatus } from "@/lib/submissions";
+import type { DemoSubmission, SubmissionStatus } from "@/lib/submissions";
+import { formatRefId } from "@/lib/format";
 
 const orgTypesList = [
   "All Types",
@@ -30,8 +31,6 @@ const statusList: { label: string; value: string; color: string }[] = [
   { label: "Scheduled", value: "scheduled", color: "text-purple-800 bg-purple-50 border-purple-200" },
   { label: "Completed", value: "completed", color: "text-emerald-800 bg-emerald-50 border-emerald-200" },
 ];
-
-const formatRefId = (id: string) => (id ? id.replace(/^(DEMO-|LH-)/, "") : "");
 
 export default function AdminDashboard() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
@@ -267,7 +266,8 @@ export default function AdminDashboard() {
         item.email.toLowerCase().includes(q) ||
         item.phone.toLowerCase().includes(q) ||
         item.location.toLowerCase().includes(q) ||
-        item.id.toLowerCase().includes(q);
+        item.id.toLowerCase().includes(q) ||
+        formatRefId(item.id).toLowerCase().includes(q);
 
       // 2. Org Type
       const matchesOrg = selectedOrgType === "All Types" || item.organisationType === selectedOrgType;

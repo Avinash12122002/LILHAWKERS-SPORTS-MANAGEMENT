@@ -1,6 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { getMongoClientPromise } from "./mongodb";
+import { formatRefId } from "./format";
 
 export type SubmissionStatus = "pending" | "contacted" | "scheduled" | "completed";
 
@@ -114,7 +115,8 @@ export async function getAllSubmissions(): Promise<{ submissions: DemoSubmission
 function getIdCandidates(id: string): string[] {
   const clean = id.trim();
   const stripped = clean.replace(/^(DEMO-|LH-)/, "");
-  return Array.from(new Set([clean, stripped, `DEMO-${stripped}`, `LH-${stripped}`]));
+  const formatted = formatRefId(clean);
+  return Array.from(new Set([clean, stripped, formatted, `DEMO-${stripped}`, `LH-${stripped}`]));
 }
 
 // Update a demo submission
@@ -127,8 +129,11 @@ export async function updateSubmission(id: string, updates: Partial<DemoSubmissi
       const client = await mongoPromise;
       const db = client.db(DB_NAME);
       const collection = db.collection<DemoSubmission>(COLLECTION_NAME);
+      const regexConditions = candidates.map((c) => ({
+        id: { $regex: `${c.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`, $options: "i" },
+      }));
       const result = await collection.findOneAndUpdate(
-        { id: { $in: candidates } },
+        { $or: [{ id: { $in: candidates } }, ...regexConditions] },
         { $set: updates },
         { returnDocument: "after" }
       );
@@ -142,7 +147,15 @@ export async function updateSubmission(id: string, updates: Partial<DemoSubmissi
 
   // File fallback update
   const list = await ensureFileStore();
-  const index = list.findIndex((item) => candidates.includes(item.id) || candidates.includes(item.id.replace(/^(DEMO-|LH-)/, "")));
+  const index = list.findIndex((item) => {
+    const itemId = item.id.toLowerCase();
+    return candidates.some(
+      (c) =>
+        itemId === c.toLowerCase() ||
+        itemId.endsWith(c.toLowerCase()) ||
+        formatRefId(item.id).toLowerCase() === c.toLowerCase()
+    );
+  });
   if (index !== -1) {
     list[index] = { ...list[index], ...updates };
     await fs.writeFile(DATA_FILE, JSON.stringify(list, null, 2), "utf-8");
@@ -162,7 +175,12 @@ export async function deleteSubmission(id: string): Promise<{ success: boolean }
       const client = await mongoPromise;
       const db = client.db(DB_NAME);
       const collection = db.collection<DemoSubmission>(COLLECTION_NAME);
-      const result = await collection.deleteOne({ id: { $in: candidates } });
+      const regexConditions = candidates.map((c) => ({
+        id: { $regex: `${c.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`, $options: "i" },
+      }));
+      const result = await collection.deleteOne({
+        $or: [{ id: { $in: candidates } }, ...regexConditions],
+      });
       if (result.deletedCount > 0) {
         return { success: true };
       }
@@ -174,7 +192,15 @@ export async function deleteSubmission(id: string): Promise<{ success: boolean }
   // File fallback delete
   const list = await ensureFileStore();
   const initialLength = list.length;
-  const filtered = list.filter((item) => !candidates.includes(item.id) && !candidates.includes(item.id.replace(/^(DEMO-|LH-)/, "")));
+  const filtered = list.filter((item) => {
+    const itemId = item.id.toLowerCase();
+    return !candidates.some(
+      (c) =>
+        itemId === c.toLowerCase() ||
+        itemId.endsWith(c.toLowerCase()) ||
+        formatRefId(item.id).toLowerCase() === c.toLowerCase()
+    );
+  });
   if (filtered.length !== initialLength) {
     await fs.writeFile(DATA_FILE, JSON.stringify(filtered, null, 2), "utf-8");
     return { success: true };
