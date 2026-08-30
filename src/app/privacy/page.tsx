@@ -153,7 +153,10 @@ export default function PrivacyPage() {
                 🏢 <strong>CIN:</strong> <span className="font-mono text-[var(--color-primary)] font-bold">U92419HR2019PTC083938</span> (Registration No: 83938)
               </p>
               <p>
-                📍 <strong>Registered Office:</strong> First Floor, Besides Sadar Thana, Delhi Rohtak Corridor, opp. Metro pillar no 830, Bahadurgarh, DELHI NCR 124507
+                🏢 <strong>Corporate Office:</strong> First Floor, Besides Sadar Thana, Delhi Rohtak Corridor, opp. Metro pillar no 830, Bahadurgarh, DELHI NCR 124507
+              </p>
+              <p>
+                📍 <strong>Registered Office:</strong> NO. 354/4 GALI NO.3 VATS COLONY LINE PAR , BAHADURGARH, Haryana, India - 120507
               </p>
               <p>
                 📞 <strong>Direct Phone:</strong> <a href="tel:+918168226462" className="text-slate-900 font-bold hover:text-[var(--color-primary)] transition-colors">+91 81682 26462</a> (WhatsApp) &bull; <a href="tel:+918950546462" className="text-slate-900 font-bold hover:text-[var(--color-primary)] transition-colors">+91 89505 46462</a> (Calling Helpline)

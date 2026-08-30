@@ -31,8 +31,8 @@ export default function ContactPage() {
             </p>
           </div>
 
-          {/* 4 Contact Highlight Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto mb-8">
+          {/* 5 Contact Highlight Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-7xl mx-auto mb-8">
             {/* Phone Card */}
             <div className="glass-card p-5 rounded-2xl border border-slate-200 bg-white text-center flex flex-col justify-between hover:border-[var(--color-primary)]/40 hover:shadow-lg transition-all group">
               <div>
@@ -85,11 +85,11 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Office Address Card */}
+            {/* Corporate Office Card */}
             <div className="glass-card p-5 rounded-2xl border border-slate-200 bg-white text-center flex flex-col justify-between hover:border-[var(--color-primary)]/40 hover:shadow-lg transition-all group">
               <div>
                 <div className="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center mx-auto mb-3 text-lg font-bold group-hover:scale-110 transition-transform shadow-xs">
-                  📍
+                  🏢
                 </div>
                 <h3 className="text-xs uppercase tracking-wider text-slate-500 font-bold">
                   Corporate Office
@@ -98,6 +98,23 @@ export default function ContactPage() {
               <div className="mt-2 pt-2 border-t border-slate-100 text-left">
                 <p className="text-[11px] font-medium text-slate-700 leading-snug">
                   First Floor, Besides Sadar Thana, Delhi Rohtak Corridor, opp. Metro pillar no 830, Bahadurgarh, DELHI NCR 124507
+                </p>
+              </div>
+            </div>
+
+            {/* Registered Office Card */}
+            <div className="glass-card p-5 rounded-2xl border border-slate-200 bg-white text-center flex flex-col justify-between hover:border-[var(--color-primary)]/40 hover:shadow-lg transition-all group">
+              <div>
+                <div className="w-10 h-10 rounded-xl bg-emerald-50 text-[var(--color-primary)] flex items-center justify-center mx-auto mb-3 text-lg font-bold group-hover:scale-110 transition-transform shadow-xs">
+                  📍
+                </div>
+                <h3 className="text-xs uppercase tracking-wider text-slate-500 font-bold">
+                  Registered Office
+                </h3>
+              </div>
+              <div className="mt-2 pt-2 border-t border-slate-100 text-left">
+                <p className="text-[11px] font-medium text-slate-700 leading-snug">
+                  NO. 354/4 GALI NO.3 VATS COLONY LINE PAR , BAHADURGARH, Haryana, India - 120507
                 </p>
               </div>
             </div>

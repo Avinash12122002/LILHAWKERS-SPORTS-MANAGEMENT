@@ -90,11 +90,21 @@ export default function Footer() {
                   info@lilhawkers.com
                 </a>
               </div>
-              <div className="flex items-start gap-2">
-                <span className="text-[var(--color-primary)] font-bold text-xs mt-0.5">📍</span>
-                <span className="text-slate-700 leading-snug">
-                  First Floor, Besides Sadar Thana, Delhi Rohtak Corridor, opp. Metro pillar no 830, Bahadurgarh, DELHI NCR 124507
-                </span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+                <div className="flex items-start gap-1.5 p-2 rounded-xl bg-white/80 border border-slate-200">
+                  <span className="text-[var(--color-primary)] font-bold text-xs mt-0.5 shrink-0">🏢</span>
+                  <div className="text-slate-700 leading-snug">
+                    <span className="font-bold text-slate-900 block text-[10px] uppercase tracking-wider text-[var(--color-primary)]">Corporate Office</span>
+                    <span className="text-[11px]">First Floor, Besides Sadar Thana, Delhi Rohtak Corridor, opp. Metro pillar no 830, Bahadurgarh, DELHI NCR 124507</span>
+                  </div>
+                </div>
+                <div className="flex items-start gap-1.5 p-2 rounded-xl bg-white/80 border border-slate-200">
+                  <span className="text-[var(--color-primary)] font-bold text-xs mt-0.5 shrink-0">📍</span>
+                  <div className="text-slate-700 leading-snug">
+                    <span className="font-bold text-slate-900 block text-[10px] uppercase tracking-wider text-[var(--color-primary)]">Registered Office</span>
+                    <span className="text-[11px]">NO. 354/4 GALI NO.3 VATS COLONY LINE PAR , BAHADURGARH, Haryana, India - 120507</span>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -188,6 +198,15 @@ export default function Footer() {
                   </dt>
                   <dd className="text-slate-900 font-medium text-[10px] mt-0.5 truncate">
                     Private Limited Company
+                  </dd>
+                </div>
+
+                <div className="sm:col-span-2 pt-1.5 border-t border-slate-100">
+                  <dt className="text-[9px] uppercase tracking-wider text-slate-500 font-semibold">
+                    Registered Office
+                  </dt>
+                  <dd className="text-slate-700 text-[10px] mt-0.5 leading-snug font-medium">
+                    NO. 354/4 GALI NO.3 VATS COLONY LINE PAR , BAHADURGARH, Haryana, India - 120507
                   </dd>
                 </div>
               </dl>
