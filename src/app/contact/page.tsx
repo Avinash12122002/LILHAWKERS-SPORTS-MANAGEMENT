@@ -72,16 +72,29 @@ export default function ContactPage() {
                   Email Us
                 </h3>
               </div>
-              <div className="mt-3 pt-2 border-t border-slate-100">
-                <a
-                  href="mailto:info@lilhawkers.com"
-                  className="text-sm font-bold text-slate-900 hover:text-[var(--color-primary)] transition-colors block truncate"
-                >
-                  info@lilhawkers.com
-                </a>
-                <span className="text-[10px] text-slate-500 font-medium block mt-0.5">
-                  Quick Institutional Support
-                </span>
+              <div className="mt-3 pt-2 border-t border-slate-100 space-y-2">
+                <div>
+                  <a
+                    href="mailto:info@lilhawkers.com"
+                    className="text-xs font-bold text-slate-900 hover:text-[var(--color-primary)] transition-colors block truncate"
+                  >
+                    info@lilhawkers.com
+                  </a>
+                  <span className="text-[9.5px] text-slate-500 font-medium block">
+                    Institutional &amp; General Inquiries
+                  </span>
+                </div>
+                <div className="pt-1.5 border-t border-slate-100">
+                  <a
+                    href="mailto:hr@lilhawkers.com"
+                    className="text-xs font-bold text-slate-900 hover:text-[var(--color-primary)] transition-colors block truncate"
+                  >
+                    hr@lilhawkers.com
+                  </a>
+                  <span className="text-[9.5px] text-slate-500 font-medium block">
+                    HR &amp; Career Opportunities
+                  </span>
+                </div>
               </div>
             </div>
 

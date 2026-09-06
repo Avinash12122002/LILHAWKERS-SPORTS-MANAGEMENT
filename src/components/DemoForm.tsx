@@ -96,7 +96,7 @@ export default function DemoForm() {
 
       const contentType = res.headers.get("content-type") || "";
       if (!contentType.includes("application/json")) {
-        throw new Error("Unable to connect to the demo registration server. Please verify your internet connection or contact us directly at contact@lilhawkers.com.");
+        throw new Error("Unable to connect to the demo registration server. Please verify your internet connection or contact us directly at info@lilhawkers.com.");
       }
 
       const result = await res.json();

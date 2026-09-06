@@ -162,7 +162,7 @@ export default function PrivacyPage() {
                 📞 <strong>Direct Phone:</strong> <a href="tel:+918168226462" className="text-slate-900 font-bold hover:text-[var(--color-primary)] transition-colors">+91 81682 26462</a> (WhatsApp) &bull; <a href="tel:+918950546462" className="text-slate-900 font-bold hover:text-[var(--color-primary)] transition-colors">+91 89505 46462</a> (Calling Helpline)
               </p>
               <p>
-                ✉ <strong>Email:</strong> <a href="mailto:info@lilhawkers.com" className="text-slate-900 font-bold hover:text-[var(--color-primary)] transition-colors">info@lilhawkers.com</a>
+                ✉ <strong>Email:</strong> <a href="mailto:info@lilhawkers.com" className="text-slate-900 font-bold hover:text-[var(--color-primary)] transition-colors">info@lilhawkers.com</a> &bull; <strong>HR &amp; Careers:</strong> <a href="mailto:hr@lilhawkers.com" className="text-slate-900 font-bold hover:text-[var(--color-primary)] transition-colors">hr@lilhawkers.com</a>
               </p>
             </div>
           </div>

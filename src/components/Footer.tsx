@@ -84,10 +84,14 @@ export default function Footer() {
                   +91 89505 46462 (Calling)
                 </a>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 flex-wrap">
                 <span className="text-[var(--color-primary)] font-bold text-xs">✉</span>
                 <a href="mailto:info@lilhawkers.com" className="text-slate-700 hover:text-slate-900 transition-colors font-medium">
                   info@lilhawkers.com
+                </a>
+                <span className="text-slate-300">&bull;</span>
+                <a href="mailto:hr@lilhawkers.com" className="text-slate-700 hover:text-slate-900 transition-colors font-medium" title="Careers & HR">
+                  hr@lilhawkers.com
                 </a>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">

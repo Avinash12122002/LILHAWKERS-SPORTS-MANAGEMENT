@@ -229,12 +229,21 @@ export default function Navbar() {
             </a>
           </div>
           <div className="flex items-center justify-between">
-            <span className="text-[10px] text-slate-500 uppercase font-semibold">Email</span>
+            <span className="text-[10px] text-slate-500 uppercase font-semibold">General Email</span>
             <a
               href="mailto:info@lilhawkers.com"
               className="text-slate-600 hover:text-slate-900 transition-colors text-[11px]"
             >
               info@lilhawkers.com
+            </a>
+          </div>
+          <div className="flex items-center justify-between">
+            <span className="text-[10px] text-slate-500 uppercase font-semibold">HR &amp; Careers</span>
+            <a
+              href="mailto:hr@lilhawkers.com"
+              className="text-slate-600 hover:text-slate-900 transition-colors text-[11px]"
+            >
+              hr@lilhawkers.com
             </a>
           </div>
           <div className="pt-1 text-[9px] text-slate-400 text-center leading-tight">
