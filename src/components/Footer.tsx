@@ -86,11 +86,11 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-2 flex-wrap">
                 <span className="text-[var(--color-primary)] font-bold text-xs">✉</span>
-                <a href="mailto:info@lilhawkers.com" className="text-slate-700 hover:text-slate-900 transition-colors font-medium">
+                <a href="mailto:info@lilhawkers.com" className="text-slate-700 hover:text-[var(--color-primary)] transition-colors font-medium">
                   info@lilhawkers.com
                 </a>
                 <span className="text-slate-300">&bull;</span>
-                <a href="mailto:hr@lilhawkers.com" className="text-slate-700 hover:text-slate-900 transition-colors font-medium" title="Careers & HR">
+                <a href="mailto:hr@lilhawkers.com" className="text-slate-700 hover:text-[var(--color-primary)] transition-colors font-medium" title="Careers & HR">
                   hr@lilhawkers.com
                 </a>
               </div>
@@ -106,7 +106,7 @@ export default function Footer() {
                   <span className="text-[var(--color-primary)] font-bold text-xs mt-0.5 shrink-0">📍</span>
                   <div className="text-slate-700 leading-snug">
                     <span className="font-bold text-slate-900 block text-[10px] uppercase tracking-wider text-[var(--color-primary)]">Registered Office</span>
-                    <span className="text-[11px]">NO. 354/4 GALI NO.3 VATS COLONY LINE PAR , BAHADURGARH, Haryana, India - 120507</span>
+                    <span className="text-[11px]">NO. 354/4 GALI NO.3 VATS COLONY LINE PAR, BAHADURGARH, Haryana, India - 120507</span>
                   </div>
                 </div>
               </div>
@@ -210,7 +210,7 @@ export default function Footer() {
                     Registered Office
                   </dt>
                   <dd className="text-slate-700 text-[10px] mt-0.5 leading-snug font-medium">
-                    NO. 354/4 GALI NO.3 VATS COLONY LINE PAR , BAHADURGARH, Haryana, India - 120507
+                    NO. 354/4 GALI NO.3 VATS COLONY LINE PAR, BAHADURGARH, Haryana, India - 120507
                   </dd>
                 </div>
               </dl>

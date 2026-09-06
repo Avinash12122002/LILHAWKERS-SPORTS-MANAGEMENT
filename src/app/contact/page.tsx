@@ -127,7 +127,7 @@ export default function ContactPage() {
               </div>
               <div className="mt-2 pt-2 border-t border-slate-100 text-left">
                 <p className="text-[11px] font-medium text-slate-700 leading-snug">
-                  NO. 354/4 GALI NO.3 VATS COLONY LINE PAR , BAHADURGARH, Haryana, India - 120507
+                  NO. 354/4 GALI NO.3 VATS COLONY LINE PAR, BAHADURGARH, Haryana, India - 120507
                 </p>
               </div>
             </div>
